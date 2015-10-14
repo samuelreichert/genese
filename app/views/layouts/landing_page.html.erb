@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sistema de Controle Financeiro Pessoal">
+  <meta name="author" content="Samuel Reichert">
+
+  <title>Sistema X | Sistema de Controle Financeiro Pessoal</title>
+  
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  
+  <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+  <%= stylesheet_link_tag    'landing_page', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'landing_page', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body id="page-top">
+  <%= render partial: 'layouts/nav/landing_nav' %>
+  <%= yield %>
+</body>
+
+</html>

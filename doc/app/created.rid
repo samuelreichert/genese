@@ -1,0 +1,13 @@
+Tue, 13 Oct 2015 23:14:02 -0300
+README.rdoc	Tue, 11 Aug 2015 10:00:35 -0300
+app/controllers/application_controller.rb	Tue, 11 Aug 2015 21:28:36 -0300
+app/controllers/home_controller.rb	Sat, 26 Sep 2015 16:02:12 -0300
+app/controllers/users/confirmations_controller.rb	Sat, 15 Aug 2015 13:38:11 -0300
+app/controllers/users/omniauth_callbacks_controller.rb	Sat, 15 Aug 2015 13:38:11 -0300
+app/controllers/users/passwords_controller.rb	Sat, 15 Aug 2015 13:38:11 -0300
+app/controllers/users/registrations_controller.rb	Sat, 15 Aug 2015 13:38:11 -0300
+app/controllers/users/sessions_controller.rb	Sat, 15 Aug 2015 13:38:11 -0300
+app/controllers/users/unlocks_controller.rb	Sat, 15 Aug 2015 13:38:11 -0300
+app/helpers/application_helper.rb	Sat, 03 Oct 2015 15:22:47 -0300
+app/helpers/home_helper.rb	Sat, 15 Aug 2015 13:47:26 -0300
+app/models/user.rb	Tue, 11 Aug 2015 21:24:39 -0300
