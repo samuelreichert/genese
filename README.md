@@ -26,3 +26,6 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
+
+### Using in this project
+* EditorConfig - See more here: http://EditorConfig.org
