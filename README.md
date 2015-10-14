@@ -29,3 +29,6 @@ Things you may want to cover:
 
 ### Using in this project
 * EditorConfig - See more here: http://EditorConfig.org
+* Devise - https://github.com/plataformatec/devise
+* ActiveAdmin - http://activeadmin.info/
+* Letter Opener - https://github.com/ryanb/letter_opener
