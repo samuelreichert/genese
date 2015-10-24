@@ -17,9 +17,9 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-@import "landing/animate.min.css";
+@import "landing/animate";
 @import "layout/creative";
 
 header {
-  background-image: url('workstation.jpg');
+  background-image: url(asset_path('workstation.jpg'));
 }

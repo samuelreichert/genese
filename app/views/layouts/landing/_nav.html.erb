@@ -8,30 +8,17 @@
         <span class="icon-bar"></span>
       </button>
 
-      <a class="navbar-brand page-scroll" href="#page-top">Gênese</a>
+      <%= link_to 'Gênese', root_path, class: 'navbar-brand page-scroll' %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a class="page-scroll" href="<%= root_path %>">Início</a></li>
-        
-        <li><a class="page-scroll" href="#services">Vantagens</a></li>
-        
-        <li><a class="page-scroll" href="#portfolio">Sobre</a></li>
-        
-        <li><a class="page-scroll" href="#contact">Contato</a></li>
-        
-        <li><a href="#">Ajuda</a></li>
-      </ul>
-
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li>
             <%= link_to "Sair", destroy_user_session_path, method: :delete, class: 'navbar-link' %>
           </li>
           <li>
-            <!-- , data: {toggle: 'modal', target: '#loginModal'} -->
             <%= link_to "#", class: 'navbar-link' do %>
               Olá, <%= current_user.name %>
               <small> - Entre</small>
@@ -44,7 +31,15 @@
           <li>
             <%= link_to "Cadastre-se", new_user_registration_path, class: 'navbar-link' %>
           </li>
-        <% end %> 
+        <% end %>
+      </ul>
+
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Início', root_path %></li>
+        <li><%= link_to 'Vantagens', '/resources' %></li>
+        <li><%= link_to 'Sobre', '/about' %></li>
+        <li><%= link_to 'Contato', '/contact' %></li>
+        <li><%= link_to 'Ajuda', '/help' %></li>
       </ul>
     </div>
   </div>
