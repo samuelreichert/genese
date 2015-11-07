@@ -1,6 +1,20 @@
 Rails.application.routes.draw do
   # devise_for :users
-  devise_for :users, path: "", path_names: { sign_in: 'login', sign_out: 'logout', password: 'password', confirmation: 'verification', unlock: 'unlock', registration: 'register', sign_up: 'signup' }, controllers: { sessions: 'users/sessions' }
+  devise_for :users,
+    path: "",
+    path_names: {
+      sign_in: 'login',
+      sign_out: 'logout',
+      password: 'password',
+      confirmation: 'verification',
+      unlock: 'unlock',
+      registration: 'register',
+      sign_up: 'signup'
+    }, controllers: {
+      sessions: 'users/sessions',
+      registrations: 'users/registrations'
+    }
+
   root to: "home#index"
 
   HomeController.action_methods.each do |action|

@@ -14,7 +14,10 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'jquery-rails'
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
 # CSS
 gem 'sass-rails'
 gem 'bootstrap-sass'
@@ -22,6 +25,8 @@ gem 'font-awesome-sass'
 # Application
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+# Migrations
+gem 'foreigner'
 
 group :development do
   gem 'dotenv-rails'

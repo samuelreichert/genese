@@ -20,3 +20,7 @@
 //= require jquery.fittext
 //= require wow.min.js
 //= require creative
+
+// DatePicker
+//= require moment
+//= require bootstrap-datetimepicker
