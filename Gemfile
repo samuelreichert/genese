@@ -3,6 +3,8 @@ ruby '2.2.3'
 
 # Rails
 gem 'rails', '4.1.11'
+gem 'http_accept_language'
+gem 'activeadmin', github: 'activeadmin'
 # DB
 gem 'pg'
 # Auth
@@ -10,6 +12,9 @@ gem 'devise'
 # Views
 gem 'kaminari'
 gem 'simple_form'
+gem 'sidekiq'
+gem 'foreman'
+gem 'mandrill_mailer'
 # JS
 gem 'uglifier'
 gem 'coffee-rails'
@@ -17,7 +22,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'jquery-rails'
 gem 'momentjs-rails'
-gem 'bootstrap3-datetimepicker-rails'
+# gem 'bootstrap3-datetimepicker-rails'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 # CSS
 gem 'sass-rails'
 gem 'bootstrap-sass'
@@ -39,14 +45,12 @@ group :development do
   gem 'awesome_print'
   gem 'rails-erd'
   gem 'letter_opener'
-  gem 'spring'
 end
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
 end
 
-group :production do
-  # For Heroku
+group :production, :staging do
   gem 'rails_12factor'
 end
