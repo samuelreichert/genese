@@ -1,4 +1,4 @@
-@import "variables/variables";
+@import "layout/landing/variables";
 @import "mixins/mixins";
 
 // Global Components
@@ -340,6 +340,10 @@ header {
   border: none;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.btn-default {
+  border: 1px solid #CCC;
 }
 
 // Extras
