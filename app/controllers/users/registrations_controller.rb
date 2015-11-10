@@ -6,13 +6,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
-  protected
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :birth_date, :picture, :email, :password) }
-    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :birth_date, :picture, :email, :password, :current_password) }
-  end
-
   # before_filter :configure_sign_up_params, only: [:create]
   # before_filter :configure_account_update_params, only: [:update]
 
@@ -22,9 +15,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super do |resource|
+      # binding.pry
+      if resource.persisted?
+        User::SignupService.new(resource).create_account
+      end
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -50,7 +48,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :birth_date, :picture, :email, :password) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :birth_date, :picture, :email, :password, :current_password) }
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

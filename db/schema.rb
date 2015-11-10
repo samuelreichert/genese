@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150927232349) do
+ActiveRecord::Schema.define(version: 20151109220432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: true do |t|
+    t.boolean "entries_order",                                 default: false
+    t.string  "currency_type",                                 default: "R$",  null: false
+    t.integer "reminder_days_before",                          default: 0
+    t.boolean "reminder_active",                               default: false
+    t.decimal "total_balance",        precision: 11, scale: 2
+    t.decimal "total_expenditure",    precision: 11, scale: 2
+    t.boolean "is_shared",                                     default: false
+  end
+
+  create_table "accounts_users", id: false, force: true do |t|
+    t.integer "account_id", null: false
+    t.integer "user_id",    null: false
+  end
+
+  add_index "accounts_users", ["account_id", "user_id"], name: "index_accounts_users_on_account_id_and_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -36,5 +53,9 @@ ActiveRecord::Schema.define(version: 20150927232349) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  Foreigner.load
+  add_foreign_key "accounts_users", "accounts", name: "accounts_users_account_id_fk"
+  add_foreign_key "accounts_users", "users", name: "accounts_users_user_id_fk"
 
 end

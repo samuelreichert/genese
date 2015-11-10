@@ -1,0 +1,5 @@
+en:
+  users:
+    registrations:
+      new:
+        minimum_password_text: "%{min_password} characters minimum"

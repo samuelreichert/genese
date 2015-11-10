@@ -12,8 +12,12 @@ pt-BR:
       default_message: "Please review the problems below:"
     labels:
       user:
-        username: 'Usuário'
+        name: 'Nome'
         password: 'Senha'
+        password_confirmation: 'Digite novamente sua senha'
+        birth_date: 'Data de Nascimento'
+        picture: 'Foto'
+
     prompts:
       user:
         gender: 'Genêro'

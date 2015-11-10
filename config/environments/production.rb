@@ -20,7 +20,7 @@ Rails.application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -75,4 +75,16 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # ActionMailer Configuration
+  config.action_mailer.smtp_settings = {
+    :address        => 'smtp.mandrillapp.com',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['MANDRILL_USERNAME'],
+    :password       => ENV['MANDRILL_APIKEY'],
+    :domain         => 'genese-production.herokuapp.com',
+    :enable_starttls_auto => true
+  }
+  config.mandrill_mailer.default_url_options = { host: 'http://genese-production.herokuapp.com' }
 end

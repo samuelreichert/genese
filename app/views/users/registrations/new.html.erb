@@ -8,7 +8,7 @@
     </div>
 
     <div class="row">
-      <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12">
+      <div class="col-lg-6 col-lg-offset-3 col-xs-12">
         <div class="panel panel-default">
           <div class="panel-body">
             <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -17,13 +17,12 @@
               <div class="form-inputs">
                 <%= f.input :name, required: true, autofocus: true, input_html: {class: 'input-lg'} %>
 
-                <%= f.input :birth_date, as: :string %>
-                <!-- date_select -->
+                <%= f.input :birth_date, as: :date_picker %>
 
-                <%= f.input :picture, as: :file, required: false %>
+                <%= f.input :picture, as: :file, required: false, input_html: {accept: 'image/*'} %>
 
                 <%= f.input :email, required: true, input_html: {class: 'input-lg'} %>
-                <%= f.input :password, required: true, input_html: {class: 'input-lg'}, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+                <%= f.input :password, required: true, input_html: {class: 'input-lg'}, hint: (I18n.t('users.registrations.new.minimum_password_text', min_password: @minimum_password_length) if @minimum_password_length) %>
                 <%= f.input :password_confirmation, required: true, input_html: {class: 'input-lg'} %>
               </div>
 

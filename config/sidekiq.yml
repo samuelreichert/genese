@@ -1,0 +1,10 @@
+:verbose: false
+:queues:
+  - default
+  - email
+development:
+  :concurrency: 2
+staging:
+  :concurrency: 5
+production:
+  :concurrency: 20
