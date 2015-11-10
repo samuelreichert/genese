@@ -1,0 +1,8 @@
+attributes:
+  - content
+  - primary_key
+  - foreign_key
+  - inheritance
+filename: DiagramaER
+filetype: pdf
+title: Diagrama ER - Projeto II
