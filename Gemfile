@@ -25,9 +25,10 @@ gem 'momentjs-rails'
 # gem 'bootstrap3-datetimepicker-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 # CSS
-gem 'sass-rails'
+gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
+gem 'bootswatch-rails'
 # Application
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'

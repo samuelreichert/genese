@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   HomeController.action_methods.each do |action|
     get "/#{action}", to: "home##{action}", as: "#{action}_page"
   end
+
+
+  get "/dashboard", to: "dashboard#index", as: "dashboard_page"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

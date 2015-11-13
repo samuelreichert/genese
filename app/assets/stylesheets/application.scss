@@ -10,12 +10,23 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  */
+
+// Bootstrap body padding for fixed navbar
+// body { padding-top: 60px; }
+
+//bootstrap
 @import "bootstrap-sprockets";
+@import "layout/application/variables";
+@import "bootswatch/paper/variables";
 @import "bootstrap";
 @import "bootstrap-datetimepicker";
 
+// And finally bootswatch style itself
+@import "bootswatch/paper/bootswatch";
+
+//icons
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-@import "layout/application/variables";
-@import "layout/application/bootswatch";
+//base
+@import "layout/application/base";

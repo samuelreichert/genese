@@ -13,6 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap-sprockets
+//= require bootstrap
 
-//= require home
+//= require moment
+//= require bootstrap-datetimepicker
+//= require pickers
+
+// You may include any languages (optional)
+//= require moment/pt-br
