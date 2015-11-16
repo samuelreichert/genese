@@ -13,4 +13,9 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     '/dashboard'
   end
+
+  private
+  def current_account
+    current_user.accounts(current_user.main_account)
+  end
 end
