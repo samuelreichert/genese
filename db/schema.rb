@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109220432) do
+ActiveRecord::Schema.define(version: 20151114193744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20151109220432) do
     t.boolean "reminder_active",                               default: false
     t.decimal "total_balance",        precision: 11, scale: 2
     t.decimal "total_expenditure",    precision: 11, scale: 2
-    t.boolean "is_shared",                                     default: false
+    t.boolean "public",                                        default: false
   end
 
   create_table "accounts_users", id: false, force: true do |t|
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20151109220432) do
     t.string   "name",                   default: "", null: false
     t.string   "picture"
     t.datetime "birth_date"
+    t.integer  "main_account"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
