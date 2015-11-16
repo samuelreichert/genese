@@ -11,15 +11,21 @@
  * file per style scope.
  */
 
+//bootstrap
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-datetimepicker";
 
+//icons
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+//layout
 @import "landing/animate";
 @import "layout/landing/creative";
+
+//base
+@import "layout/landing/base";
 
 header {
   background-image: url(asset_path('workstation.jpg'));

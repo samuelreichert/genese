@@ -65,7 +65,8 @@ p {
 }
 
 section {
-  padding: 48px 0;
+  padding: 0;
+  padding-top: 48px;
   box-sizing: border-box;
   min-height: auto;
 }
@@ -337,7 +338,7 @@ header {
 
 .btn {
   @include sans-serif-font;
-  border: none;
+  // border: none;
   font-weight: 700;
   text-transform: uppercase;
 }
