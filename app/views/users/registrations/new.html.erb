@@ -1,5 +1,5 @@
 <section>
-  <div class="container">
+  <div class="container" id="register">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 text-center">
         <h2>Cadastre-se</h2>
@@ -15,15 +15,15 @@
               <%= f.error_notification %>
 
               <div class="form-inputs">
-                <%= f.input :name, required: true, autofocus: true, input_html: {class: 'input-lg'} %>
+                <%= f.input :name, required: true, autofocus: true %>
 
                 <%= f.input :birth_date, as: :date_picker %>
 
                 <%= f.input :picture, as: :file, required: false, input_html: {accept: 'image/*'} %>
 
-                <%= f.input :email, required: true, input_html: {class: 'input-lg'} %>
-                <%= f.input :password, required: true, input_html: {class: 'input-lg'}, hint: (I18n.t('users.registrations.new.minimum_password_text', min_password: @minimum_password_length) if @minimum_password_length) %>
-                <%= f.input :password_confirmation, required: true, input_html: {class: 'input-lg'} %>
+                <%= f.input :email, required: true %>
+                <%= f.input :password, required: true, hint: (I18n.t('users.registrations.new.minimum_password_text', min_password: @minimum_password_length) if @minimum_password_length) %>
+                <%= f.input :password_confirmation, required: true %>
               </div>
 
               <div class="form-actions">

@@ -27,5 +27,9 @@ module ProjII2
     config.i18n.default_locale = :'pt-BR'
 
     I18n.locale = config.i18n.locale = config.i18n.default_locale
+
+    config.to_prepare do
+      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "landing_page" }
+    end
   end
 end

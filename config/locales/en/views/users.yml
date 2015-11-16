@@ -3,3 +3,8 @@ en:
     registrations:
       new:
         minimum_password_text: "%{min_password} characters minimum"
+      edit:
+        email_hint: "You can't change your e-mail."
+        new_password_hint: "leave it blank if you don't want to change it"
+        new_password_label: "New password"
+        current_password_hint: "we need your current password to confirm your changes"

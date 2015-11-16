@@ -17,6 +17,7 @@ pt-BR:
         password_confirmation: 'Digite novamente sua senha'
         birth_date: 'Data de Nascimento'
         picture: 'Foto'
+        current_password: 'Senha atual'
 
     prompts:
       user:

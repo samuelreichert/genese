@@ -3,3 +3,8 @@ pt-BR:
     registrations:
       new:
         minimum_password_text: "Mínimo de %{min_password} caracteres"
+      edit:
+        email_hint: "Você não pode alterar seu e-mail."
+        new_password_hint: "Deixe em branco se você não quer alterar"
+        new_password_label: "Nova senha"
+        current_password_hint: "Sua senha é necessária para fazer as alterações"
