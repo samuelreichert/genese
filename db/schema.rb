@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151114193744) do
+ActiveRecord::Schema.define(version: 20151118231731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,58 @@ ActiveRecord::Schema.define(version: 20151114193744) do
   end
 
   add_index "accounts_users", ["account_id", "user_id"], name: "index_accounts_users_on_account_id_and_user_id", using: :btree
+
+  create_table "categories", force: true do |t|
+    t.string  "name"
+    t.string  "color"
+    t.integer "account_id"
+  end
+
+  add_index "categories", ["account_id"], name: "index_categories_on_account_id", using: :btree
+
+  create_table "contact_forms", force: true do |t|
+    t.string   "email",      default: "", null: false
+    t.string   "message",    default: "", null: false
+    t.datetime "created_at"
+    t.boolean  "readed"
+  end
+
+  create_table "default_categories", force: true do |t|
+    t.string "name"
+    t.string "color"
+  end
+
+  create_table "entries", force: true do |t|
+    t.string  "type",                                                   null: false
+    t.string  "description",                               default: "", null: false
+    t.string  "note"
+    t.date    "date"
+    t.decimal "value",            precision: 11, scale: 2,              null: false
+    t.boolean "paid"
+    t.boolean "repeat"
+    t.integer "repeat_times"
+    t.string  "repeat_frequency"
+    t.integer "account_id"
+    t.integer "category_id"
+  end
+
+  add_index "entries", ["account_id"], name: "index_entries_on_account_id", using: :btree
+  add_index "entries", ["category_id"], name: "index_entries_on_category_id", using: :btree
+
+  create_table "tutorial_categories", force: true do |t|
+    t.string "name"
+  end
+
+  create_table "tutorials", force: true do |t|
+    t.string   "title",                             null: false
+    t.string   "description",          default: "", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "tutorial_category_id"
+  end
+
+  add_index "tutorials", ["title"], name: "index_tutorials_on_title", unique: true, using: :btree
+  add_index "tutorials", ["tutorial_category_id"], name: "index_tutorials_on_tutorial_category_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
