@@ -1,4 +1,4 @@
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top affix">
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -19,7 +19,7 @@
             <%= link_to "Sair", destroy_user_session_path, method: :delete, class: 'navbar-link' %>
           </li>
           <li>
-            <%= link_to '/dashboard', class: 'navbar-link' do %>
+            <%= link_to dashboard_page_path, class: 'navbar-link' do %>
               Olá, <%= current_user.name %>
               <small> - Entre</small>
             <% end -%>
@@ -35,11 +35,11 @@
       </ul>
 
       <ul class="nav navbar-nav">
-        <li><%= link_to 'Início', root_path %></li>
-        <li><%= link_to 'Vantagens', '/resources' %></li>
-        <li><%= link_to 'Sobre', '/about' %></li>
-        <li><%= link_to 'Contato', '/contact' %></li>
-        <li><%= link_to 'Ajuda', '/help' %></li>
+        <li><%= link_to 'Início', index_page_path %></li>
+        <li><%= link_to 'Vantagens', resources_page_path %></li>
+        <li><%= link_to 'Sobre', about_page_path %></li>
+        <li><%= link_to 'Contato', contact_page_path %></li>
+        <li><%= link_to 'Ajuda', help_page_path %></li>
       </ul>
     </div>
   </div>

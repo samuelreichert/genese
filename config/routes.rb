@@ -17,10 +17,11 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  HomeController.action_methods.each do |action|
-    get "/#{action}", to: "home##{action}", as: "#{action}_page"
-  end
-
+  get "/index", to: "home#index", as: "index_page"
+  get "/resources", to: "home#resources", as: "resources_page"
+  get "/about", to: "home#about", as: "about_page"
+  get "/contact", to: "home#contact", as: "contact_page"
+  get "/help", to: "home#help", as: "help_page"
 
   get "/dashboard", to: "dashboard#index", as: "dashboard_page"
   # The priority is based upon order of creation: first created -> highest priority.

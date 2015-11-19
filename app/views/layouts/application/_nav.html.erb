@@ -12,15 +12,15 @@
 
     <div class="navbar-collapse collapse" id="collapse-navbar" aria-expanded="false" style="height: 1px;">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/dashboard">Dashboard</a></li>
-        <li><a href="#">Lançamentos</a></li>
-        <li><a href="#">Relatórios</a></li>
-        <li><a href="#">Contas</a></li>
-        <li><a href="#">Configurações</a></li>
+        <li><%= active_link_to 'Dashboard', dashboard_page_path, wrap_tag: :li, active: :exclusive %></li>
+        <li><%= active_link_to 'Lançamentos', '#', wrap_tag: :li, active: :exclusive %></li>
+        <li><%= active_link_to 'Relatórios', '#', wrap_tag: :li, active: :exclusive %></li>
+        <li><%= active_link_to 'Contas', '#', wrap_tag: :li, active: :exclusive %></li>
+        <li><%= active_link_to 'Configurações', '#', wrap_tag: :li, active: :exclusive %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Perfil', edit_user_registration_path %></li>
-        <li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
+        <li><%= active_link_to 'Perfil', edit_user_registration_path, wrap_tag: :li, active: :exclusive %></li>
+        <li><%= active_link_to 'Sair', destroy_user_session_path, method: :delete, wrap_tag: :li, active: :exclusive %></li>
       </ul>
     </div>
   </div>
