@@ -1,17 +1,17 @@
 <header>
   <div class="header-content">
     <div class="header-content-inner">
+      <%= render 'shared/flash' %>
       <h1>Sistema De Controle Financeiro</h1>
       <hr>
       <p>
         O Sistema X é a ferramenta perfeita para cuidar <br>
         das suas finanças de modo fácil e rápido.
       </p>
-      <form class="form-inline">
-        <input type="email" class="form-control input-lg" placeholder="Digite seu e-mail">
-        <button type="submit" class="btn btn-success btn-lg">Cadastre-se</button>
-      </form>
-
+      <%= form_tag(new_user_registration_path, method: "get", class: 'form-inline') do %>
+        <%= email_field_tag :email, nil, class: "form-control input-lg email-input", placeholder: 'Digite seu e-mail' %>
+        <%= submit_tag 'Cadastre-se', class: 'btn btn-success btn-lg' %>
+      <% end %>
     </div>
   </div>
 </header>
