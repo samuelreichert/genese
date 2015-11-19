@@ -15,6 +15,7 @@ gem 'simple_form'
 gem 'sidekiq'
 gem 'foreman'
 gem 'mandrill_mailer'
+gem 'active_link_to'
 # JS
 gem 'uglifier'
 gem 'coffee-rails'

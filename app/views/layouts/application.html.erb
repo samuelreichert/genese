@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sistema de Controle Financeiro Pessoal">
-  <meta name="author" content="Samuel Reichert">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sistema de Controle Financeiro Pessoal">
+    <meta name="author" content="Samuel Reichert">
 
-  <%= favicon_link_tag 'favicon.png' %>
-  <title>Sistema X | Sistema de Controle Financeiro Pessoal</title>
+    <%= favicon_link_tag 'favicon.png' %>
+    <title>Sistema X | Sistema de Controle Financeiro Pessoal</title>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <%= render 'layouts/application/nav' %>
-  <%= yield %>
-</body>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'layouts/application/nav' %>
+    <div class="container">
+      <%= render 'shared/flash' %>
+    </div>
+    <%= yield %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </body>
 </html>
