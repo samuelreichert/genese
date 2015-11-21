@@ -9,7 +9,7 @@
         das suas finanças de modo fácil e rápido.
       </p>
       <%= form_tag(new_user_registration_path, method: "get", class: 'form-inline') do %>
-        <%= email_field_tag :email, nil, class: "form-control input-lg email-input", placeholder: 'Digite seu e-mail' %>
+        <%= email_field_tag :email, nil, required: true, class: "form-control input-lg email-input", placeholder: 'Digite seu e-mail' %>
         <%= submit_tag 'Cadastre-se', class: 'btn btn-success btn-lg' %>
       <% end %>
     </div>
