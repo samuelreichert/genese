@@ -25,6 +25,11 @@
     bundle exec foreman start -f Procfile.development
 ```
 
+## Generate ER Diagram
+```
+    bundle exec erd
+```
+
 ## Using in this project
 * EditorConfig - See more here: http://EditorConfig.org
 * Devise - https://github.com/plataformatec/devise
