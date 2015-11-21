@@ -1,1 +1,2 @@
-default_category.rb
+class DefaultCategory < ActiveRecord::Base
+end
