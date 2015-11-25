@@ -2,3 +2,13 @@ pt-BR:
   activerecord:
     models:
       user: 'Usuário'
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "Por favor, preencha o campo de nome"
+            email:
+              blank: "Por favor, preencha o campo de e-mail"
+            password:
+              blank: "Por favor, preencha o campo de senha"
