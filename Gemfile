@@ -7,6 +7,8 @@ gem 'http_accept_language'
 gem 'activeadmin', github: 'activeadmin'
 # DB
 gem 'pg'
+# Model
+gem 'enumerize'
 # Auth
 gem 'devise'
 # Views

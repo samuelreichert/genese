@@ -11,11 +11,11 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    '/dashboard'
+    dashboard_page_path
   end
 
   private
   def current_account
-    current_user.accounts(current_user.main_account)
+    account = current_user.accounts.find(current_user.main_account)
   end
 end

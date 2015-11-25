@@ -16,7 +16,7 @@
         <li><%= active_link_to 'Lançamentos', '#', wrap_tag: :li, active: :exclusive %></li>
         <li><%= active_link_to 'Relatórios', '#', wrap_tag: :li, active: :exclusive %></li>
         <li><%= active_link_to 'Contas', '#', wrap_tag: :li, active: :exclusive %></li>
-        <li><%= active_link_to 'Configurações', '#', wrap_tag: :li, active: :exclusive %></li>
+        <li><%= active_link_to 'Configurações', accounts_path, wrap_tag: :li, active: :exclusive %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><%= active_link_to 'Perfil', edit_user_registration_path, wrap_tag: :li, active: :exclusive %></li>

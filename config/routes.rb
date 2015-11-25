@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get "/help", to: "home#help", as: "help_page"
 
   get "/dashboard", to: "dashboard#index", as: "dashboard_page"
+
+  resources :accounts
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
