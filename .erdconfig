@@ -5,6 +5,6 @@ attributes:
   - inheritance
 filename: DiagramaER
 filetype: pdf
-indirect: true
-inheritance: false
+inheritance: true
+polymorphism: true
 title: Diagrama ER - Projeto II

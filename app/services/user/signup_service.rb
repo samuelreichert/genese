@@ -5,7 +5,8 @@ class User::SignupService
   end
 
   def create_account
-    @user.accounts.create()
+    account = @user.accounts.create()
+    @user.update(main_account: account.id)
 
     send_welcome_email
     # Exemplos do Matias
