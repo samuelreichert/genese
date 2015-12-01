@@ -1,24 +1,29 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 col-lg-offset-2">
+    <div class="col-lg-10 col-lg-offset-1">
       <div class="panel panel-default">
         <div class="panel-body">
-          <!-- <h2>Edit <%= resource_name.to_s.humanize %></h2> -->
-
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
             <%= f.error_notification %>
 
+            <div class="row">
+              <div class="col-lg-10 col-lg-offset-1 text-center">
+                <h4>Perfil</h4>
+                <hr>
+              </div>
+            </div>
+
             <div class="form-inputs">
               <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-8 col-lg-offset-1">
                   <%= f.input :name, autofocus: true %>
                 </div>
 
-                <div class="col-lg-12">
+                <div class="col-lg-10 col-lg-offset-1">
                   <p class="text-muted">Email: <%= resource.email %></p>
                 </div>
 
-                <div class="col-lg-12">
+                <div class="col-lg-10 col-lg-offset-1">
                   <div class="row">
                     <div class="col-lg-6">
                       <%= f.input :birth_date, as: :date_picker, input_html: {class: "teste"} %>
@@ -31,13 +36,13 @@
                   </div>
                 </div>
 
-                <div class="col-lg-12">
+                <div class="col-lg-10 col-lg-offset-1">
                   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                     <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
                   <% end %>
                 </div>
 
-                <div class="col-lg-12">
+                <div class="col-lg-10 col-lg-offset-1">
                   <div class="row">
                     <div class="col-lg-6">
                       <%= f.input :password, autocomplete: "off", hint: I18n.t('users.registrations.edit.new_password_hint'), required: false, label: I18n.t('users.registrations.edit.new_password_label') %>
@@ -59,30 +64,31 @@
 
             <div class="form-actions">
               <div class="row">
-                <div class="col-lg-12 text-right">
-                  <%= f.button :submit, "Atualizar Perfil", class: 'btn btn-success btn-lg' %>
+                <div class="col-lg-5 col-lg-offset-1">
+                  <%= link_to :back, class: "btn btn-default" do %>
+                    <span class="fa fa-chevron-left"></span>
+                    Voltar
+                  <% end %>
+                </div>
+
+                <div class="col-lg-5 text-right">
+                  <%= f.button :submit, "Atualizar Perfil", class: 'btn btn-success' %>
                 </div>
               </div>
             </div>
           <% end %>
 
           <div class="row delete-account">
-            <div class="col-lg-12 text-center">
+            <div class="col-lg-10 col-lg-offset-1 text-center">
               <div class="well">
-                <h4>Deletar minha conta</h4>
-                <%= link_to registration_path(resource_name), data: { confirm: "Você tem certeza que quer deletar sua conta?" }, method: :delete, class: 'btn btn-danger' do %>
+                <h4>Deletar meu perfil</h4>
+                <%= link_to registration_path(resource_name), data: { confirm: "Você tem certeza que quer deletar seu perfil?" }, method: :delete, class: 'btn btn-danger' do %>
                   <span class="fa fa-trash"></span>
-                  Deletar Conta
+                  Deletar Perfil
                 <% end %>
               </div>
             </div>
           </div>
-
-
-          <%= link_to :back, class: "btn btn-default" do %>
-            <span class="fa fa-chevron-left"></span>
-            Voltar
-          <% end %>
         </div>
       </div>
     </div>

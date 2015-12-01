@@ -13,11 +13,18 @@ pt-BR:
     labels:
       user:
         name: 'Nome'
+        email: 'E-mail'
         password: 'Senha'
+        remember_me: 'Lembrar senha?'
         password_confirmation: 'Digite novamente sua senha'
         birth_date: 'Data de Nascimento'
         picture: 'Foto'
         current_password: 'Senha atual'
+      account:
+        currency_type: 'Tipo de moeda'
+        entries_order: 'Ordem dos Lançamentos'
+      entry:
+        entries_type: "Tipo do Lançamento"
 
     prompts:
       user:
