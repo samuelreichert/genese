@@ -5,6 +5,7 @@ ruby '2.2.3'
 gem 'rails', '4.1.11'
 gem 'http_accept_language'
 gem 'activeadmin', github: 'activeadmin'
+gem 'active_skin'
 # DB
 gem 'pg'
 # Model
@@ -25,7 +26,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'jquery-rails'
 gem 'momentjs-rails'
-# gem 'bootstrap3-datetimepicker-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 # CSS
 gem 'sass-rails', '~> 5.0'

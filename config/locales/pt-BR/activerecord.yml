@@ -1,7 +1,15 @@
 pt-BR:
   activerecord:
     models:
+      account: 'Conta'
+      category: 'Categoria'
+      contact_form: 'Contato'
+      default_category: 'Categoria Padrão'
+      entry: 'Lançamento'
+      tutorial: 'Tutorial'
+      tutorial_category: 'Categoria de Tutorial'
       user: 'Usuário'
+
     errors:
       models:
         user:
@@ -12,3 +20,5 @@ pt-BR:
               blank: "Por favor, preencha o campo de e-mail"
             password:
               blank: "Por favor, preencha o campo de senha"
+      messages:
+        record_invalid: 'Registro inválido'
