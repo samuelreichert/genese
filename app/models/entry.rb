@@ -3,6 +3,6 @@ class Entry < ActiveRecord::Base
   belongs_to :account
   belongs_to :category
 
-  enumerize :entries_type, in: [:income, :expense]
-  enumerize :repeat_frequency, in: [:yearly, :biannual, :quarterly, :bimonthly, :monthly, :fortnightly, :weekly, :daily]
+  enum entries_type: [:income, :expense]
+  enum repeat_frequency: [:yearly, :biannual, :quarterly, :bimonthly, :monthly, :fortnightly, :weekly, :daily]
 end

@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    models:
+      default_category:
+        one: 'Default Category'
+        other: 'Default Categories'

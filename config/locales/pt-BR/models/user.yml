@@ -1,0 +1,16 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: 'Usuário'
+        other: 'Usuários'
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "Por favor, preencha o nome"
+            email:
+              blank: "Por favor, preencha o e-mail"
+            password:
+              blank: "Por favor, preencha a senha"

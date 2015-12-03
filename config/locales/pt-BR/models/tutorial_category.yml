@@ -1,0 +1,6 @@
+pt-BR:
+  activerecord:
+    models:
+      tutorial_category:
+        one: 'Categoria de Tutorial'
+        other: 'Categorias de Tutorial'

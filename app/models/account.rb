@@ -5,6 +5,5 @@ class Account < ActiveRecord::Base
   has_many :categories
   has_many :entries
 
-  CURRENCIES = { dollar: "US$", euro: "€", real: "R$" }
-  enumerize :currency_type, in: CURRENCIES, scope: true
+  enum currency_type: [ :dollar, :euro, :real ]
 end

@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    models:
+      contact_form:
+        one: 'Contact form'
+        other: 'Contact forms'

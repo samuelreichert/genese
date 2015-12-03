@@ -1,0 +1,20 @@
+en:
+  activerecord:
+    models:
+      entry:
+        one: 'Entry'
+        other: 'Entries'
+    attributes:
+      entry:
+        entries_type:
+          income: 'Income'
+          expense: 'Expense'
+        repeat_frequency:
+          yearly: Yearly
+          biannual: Biannual
+          quarterly: Quarterly
+          bimonthly: Bimonthly
+          monthly: Monthly
+          fortnightly: Fortnightly
+          weekly: Weekly
+          daily: Daily

@@ -8,8 +8,6 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'active_skin'
 # DB
 gem 'pg'
-# Model
-gem 'enumerize'
 # Auth
 gem 'devise'
 # Views
