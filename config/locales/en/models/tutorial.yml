@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    models:
+      tutorial:
+        one: 'Tutorial'
+        other: 'Tutorials'

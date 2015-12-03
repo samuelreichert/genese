@@ -1,0 +1,20 @@
+pt-BR:
+  activerecord:
+    models:
+      entry:
+        one: 'Lançamento'
+        other: 'Lançamentos'
+    attributes:
+      entry:
+        entries_type:
+          income: 'Receita'
+          expense: 'Despesa'
+        repeat_frequency:
+          yearly: Anual
+          biannual: Semestral
+          quarterly: Trimestral
+          bimonthly: Bimestral
+          monthly: Mensal
+          fortnightly: Quinzenal
+          weekly: Semanal
+          daily: 'Diário'

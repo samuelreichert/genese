@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    models:
+      category:
+        one: 'Category'
+        other: 'Categories'

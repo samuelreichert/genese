@@ -1,0 +1,6 @@
+pt-BR:
+  activerecord:
+    models:
+      contact_form:
+        one: 'Formulário de Contato'
+        other: 'Formulários de Contato'

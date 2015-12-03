@@ -1,0 +1,6 @@
+pt-BR:
+  activerecord:
+    models:
+      default_category:
+        one: 'Categoria Padrão'
+        other: 'Categorias Padrão'
