@@ -1,10 +1,22 @@
 <%= simple_form_for(@category) do |f| %>
-  <%= f.error_notification %>
+  <div class="row">
+    <div class="col-lg-12">
+      <%= f.error_notification %>
 
-  <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :color %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="row">
+    <div class="col-lg-6">
+      <%= link_to :back, class: "btn btn-default" do %>
+        <span class="fa fa-chevron-left"></span>
+        Voltar
+      <% end %>
+    </div>
+    <div class="col-lg-6 text-right">
+      <%= f.button :submit, class: 'btn-success' %>
+    </div>
   </div>
 <% end %>

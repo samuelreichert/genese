@@ -3,7 +3,7 @@ class AccountsController < ApplicationController
 
   def index
     @account = current_account
-    @categories = @account.categories
+    @categories = categories_ordered
     respond_with(@account)
   end
 
@@ -19,8 +19,17 @@ class AccountsController < ApplicationController
   end
 
   def update
-    @account.update(account_params)
-    respond_with(@account)
+    @account = current_account
+
+    respond_to do |format|
+      if @account.update(account_params)
+        format.html { redirect_to accounts_path, notice: 'Conta atualizada com sucesso!' }
+        format.json { render accounts_path, status: :ok, location: @account }
+      else
+        format.html { render accounts_path }
+        format.json { render json: @account.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
@@ -31,5 +40,9 @@ class AccountsController < ApplicationController
       :reminder_days_before,
       :reminder_active
     )
+  end
+
+  def categories_ordered
+    @account.categories.order(:name)
   end
 end

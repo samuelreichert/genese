@@ -15,10 +15,13 @@
   </head>
   <body>
     <%= render 'layouts/application/nav' %>
+
     <div class="container">
       <%= render 'shared/flash' %>
+
+      <%= yield %>
     </div>
-    <%= yield %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
 </html>

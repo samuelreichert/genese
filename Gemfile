@@ -10,6 +10,8 @@ gem 'active_skin'
 gem 'pg'
 # Auth
 gem 'devise'
+# Models
+gem 'enum_help'
 # Views
 gem 'kaminari'
 gem 'simple_form'
