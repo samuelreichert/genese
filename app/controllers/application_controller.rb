@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
 
   private
   def current_account
-    account = current_user.accounts.find(current_user.main_account)
+    current_user.accounts.find(current_user.main_account)
   end
 end
