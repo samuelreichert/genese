@@ -1,95 +1,15 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-lg-offset-1">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-            <%= f.error_notification %>
-
-            <div class="row">
-              <div class="col-lg-10 col-lg-offset-1 text-center">
-                <h4>Perfil</h4>
-                <hr>
-              </div>
-            </div>
-
-            <div class="form-inputs">
-              <div class="row">
-                <div class="col-lg-8 col-lg-offset-1">
-                  <%= f.input :name, autofocus: true %>
-                </div>
-
-                <div class="col-lg-10 col-lg-offset-1">
-                  <p class="text-muted">Email: <%= resource.email %></p>
-                </div>
-
-                <div class="col-lg-10 col-lg-offset-1">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <%= f.input :birth_date, as: :date_picker, input_html: {class: "teste"} %>
-                    </div>
-
-                    <div class="col-lg-6">
-                      <%= f.input :picture, as: :file, required: false, input_html: {accept: 'image/*'} %>
-                      <%= image_tag(resource.picture_url, width: 200) if resource.picture.present? %>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-10 col-lg-offset-1">
-                  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                    <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-                  <% end %>
-                </div>
-
-                <div class="col-lg-10 col-lg-offset-1">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <%= f.input :password, autocomplete: "off", hint: I18n.t('users.registrations.edit.new_password_hint'), required: false, label: I18n.t('users.registrations.edit.new_password_label') %>
-                    </div>
-
-                    <div class="col-lg-6">
-                      <%= f.input :password_confirmation, required: false %>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <%= f.input :current_password, hint: I18n.t('users.registrations.edit.current_password_hint'), required: true %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-actions">
-              <div class="row">
-                <div class="col-lg-5 col-lg-offset-1">
-                  <%= link_to :back, class: "btn btn-default" do %>
-                    <span class="fa fa-chevron-left"></span>
-                    Voltar
-                  <% end %>
-                </div>
-
-                <div class="col-lg-5 text-right">
-                  <%= f.button :submit, "Atualizar Perfil", class: 'btn btn-success' %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-
-          <div class="row delete-account">
-            <div class="col-lg-10 col-lg-offset-1 text-center">
-              <div class="well">
-                <h4>Deletar meu perfil</h4>
-                <%= link_to registration_path(resource_name), data: { confirm: "Você tem certeza que quer deletar seu perfil?" }, method: :delete, class: 'btn btn-danger' do %>
-                  <span class="fa fa-trash"></span>
-                  Deletar Perfil
-                <% end %>
-              </div>
-            </div>
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h3>Perfil</h3>
           </div>
         </div>
+
+        <%= render 'edit_form' %>
+        <%= render 'delete_profile' %>
       </div>
     </div>
   </div>
