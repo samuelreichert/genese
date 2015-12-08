@@ -23,6 +23,8 @@ pt-BR:
       account:
         currency_type: 'Tipo de moeda'
         entries_order: 'Ordem dos Lançamentos'
+        reminder_days_before: 'Quantos dias antes?'
+        reminder_active: 'Ativar envio de e-mails?'
       entry:
         entries_type: "Tipo do Lançamento"
 
