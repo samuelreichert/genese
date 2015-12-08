@@ -13,6 +13,13 @@ en:
     labels:
       user:
         birth_date: 'Date of Birth'
+      account:
+        currency_type: 'Currency Type'
+        entries_order: 'Entries Order'
+        reminder_days_before: 'How much days before?'
+        reminder_active: 'Enable sending e-mails?'
+      entry:
+        entries_type: "Entries Type"
     prompts:
       user:
         gender: 'Gender'

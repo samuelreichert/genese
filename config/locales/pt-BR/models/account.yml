@@ -4,9 +4,12 @@ pt-BR:
       account:
         one: 'Conta'
         other: 'Contas'
-    attributes:
-      account:
-        currency_type:
-          dollar: "US$"
-          euro: "€"
-          real: "R$"
+  enums:
+    account:
+      currency_type:
+        dollar: "Dólar"
+        euro: "Euro"
+        real: "Real"
+      entries_order:
+        crescent: 'Crescente'
+        decrescent: 'Decrescente'
