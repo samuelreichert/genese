@@ -26,7 +26,15 @@ pt-BR:
         reminder_days_before: 'Quantos dias antes?'
         reminder_active: 'Ativar envio de e-mails?'
       entry:
-        entries_type: "Tipo do Lançamento"
+        entries_type: 'Tipo do Lançamento'
+        description: 'Descrição'
+        date: 'Data'
+        value: 'Valor'
+        repeat: 'Repete?'
+        repeat_times: 'Quantas vezes?'
+        repeat_frequency: 'Qual frequência?'
+        note: 'Observações'
+        paid: 'Está pago?'
 
     prompts:
       user:

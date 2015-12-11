@@ -1,0 +1,32 @@
+<div class="row entry-header">
+  <div class="col-lg-4 text-center">
+    <%= link_to new_entry_path(entries_type: Entry.entries_types[:expense]), class: 'btn btn-danger btn-new-entry btn-margin-right' do %>
+      <span class="fa fa-plus"></span>
+      Nova Despesa
+    <% end %>
+
+    <%= link_to new_entry_path(entries_type: Entry.entries_types[:income]), class: 'btn btn-success btn-new-entry' do %>
+      <span class="fa fa-plus"></span>
+      Nova Receita
+    <% end %>
+  </div>
+
+  <div class="col-lg-4 text-center">
+    <h4>Lançamentos</h4>
+  </div>
+
+  <div class="col-lg-4 text-center">
+    <h5 class="month-selector">
+      <%= link_to '#' do %>
+        <span class="fa fa-chevron-left"></span>
+      <% end %>
+
+      <span><%= I18n.t("date.month_names")[Date.today.month] %></span>
+
+      <%= link_to '#' do %>
+        <span class="fa fa-chevron-right"></span>
+      <% end %>
+    </h5>
+  </div>
+</div>
+<hr>

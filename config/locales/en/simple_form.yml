@@ -20,6 +20,11 @@ en:
         reminder_active: 'Enable sending e-mails?'
       entry:
         entries_type: "Entries Type"
+        repeat: 'Repeat?'
+        repeat_times: 'How many times?'
+        repeat_frequency: 'How often?'
+        note: 'Comments'
+        paid: 'Paid?'
     prompts:
       user:
         gender: 'Gender'
