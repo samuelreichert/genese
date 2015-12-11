@@ -1,48 +1,58 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-lg-offset-1">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <%= render 'financial_summary' %>
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
+    <div class="row">
+
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <%= render 'financial_summary' %>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <%= render 'entries_buttons' %>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <%= render 'expenditures_list' %>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <%= render 'incomes_list' %>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <%= render 'expenditures_list' %>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <%= render 'top_categories' %>
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <%= render 'entries_buttons' %>
+              </div>
             </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <%= render 'incomes_list' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= render 'top_categories' %>
           </div>
         </div>
       </div>

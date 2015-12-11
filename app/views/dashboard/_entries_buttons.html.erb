@@ -1,16 +1,17 @@
 <div class="row">
   <div class="col-lg-12">
-    <h6>Acesso Rápido à Lançamentos</h6>
+    <p class="lead">Acesso Rápido</p>
   </div>
-  <div class="col-lg-6">
-    <%= link_to "#", class: 'btn btn-danger btn-lg' do %>
-      <span class="fa fa-plus"></span>
+
+  <div class="col-lg-6 text-right">
+    <%= link_to new_entry_path(entries_type: Entry.entries_types[:expense]), class: 'btn btn-danger btn-lg' do %>
+      <i class="fa fa-plus"></i>
       Nova Despesa
     <% end %>
   </div>
-  <div class="col-lg-6">
-    <%= link_to "#", class: 'btn btn-success btn-lg' do %>
-      <span class="fa fa-plus"></span>
+  <div class="col-lg-6 text-left">
+    <%= link_to new_entry_path(entries_type: Entry.entries_types[:income]), class: 'btn btn-success btn-lg' do %>
+      <i class="fa fa-plus"></i>
       Nova Receita
     <% end %>
   </div>
