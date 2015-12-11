@@ -4,7 +4,8 @@ class EntriesController < ApplicationController
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all
+    @current_account = current_account
+    @entries = @current_account.entries
   end
 
   # GET /entries/1
@@ -14,7 +15,9 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
-    @entry = Entry.new
+    entry_type = params[:entries_type]
+    @current_account = current_account
+    @entry = @current_account.entries.new(entries_type: entry_type)
   end
 
   # GET /entries/1/edit
@@ -24,7 +27,8 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
   def create
-    @entry = Entry.new(entry_params)
+    @current_account = current_account
+    @entry = @current_account.entries.new(entry_params)
 
     respond_to do |format|
       if @entry.save
@@ -62,13 +66,22 @@ class EntriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_entry
-      @entry = Entry.find(params[:id])
-    end
+  def set_entry
+    @entry = Entry.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def entry_params
-      params[:entry]
-    end
+  def entry_params
+    params.require(:entry).permit(
+      :entries_type,
+      :description,
+      :note,
+      :date,
+      :value,
+      :paid,
+      :repeat,
+      :repeat_times,
+      :repeat_frequency,
+      :category_id
+    )
+  end
 end

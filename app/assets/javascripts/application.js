@@ -23,3 +23,4 @@
 //= require moment/pt-br
 
 //= require account
+//= require entry

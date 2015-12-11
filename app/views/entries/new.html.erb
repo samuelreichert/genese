@@ -1,18 +1,20 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 col-lg-offset-1">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-lg-10 col-lg-offset-1 text-center">
-              <h4>Novo Lançamento</h4>
-            </div>
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <% if @entry.entries_type == Entry.entries_types[:income] %>
+              <h3>Nova Receita</h3>
+            <% else %>
+              <h3>Nova Despesa</h3>
+            <% end %>
           </div>
+        </div>
 
-          <div class="row">
-            <div class="col-lg-10 col-lg-offset-1">
-              <%= render 'form' %>
-            </div>
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <%= render 'form' %>
           </div>
         </div>
       </div>
