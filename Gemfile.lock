@@ -75,6 +75,8 @@ GEM
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
+    bootstrap_colorpicker_rails (1.0.2)
+      railties (>= 3.0)
     bootswatch-rails (3.3.5)
       railties (>= 3.1)
     bourbon (4.2.6)
@@ -103,6 +105,8 @@ GEM
       timers (>= 4.1.1)
     celluloid-supervision (0.20.5)
       timers (>= 4.1.1)
+    chartjs-rails (0.1)
+      railties (>= 3.1)
     choice (0.2.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
@@ -305,8 +309,10 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  bootstrap_colorpicker_rails
   bootswatch-rails
   carrierwave
+  chartjs-rails
   coffee-rails
   datetimepicker-rails!
   devise

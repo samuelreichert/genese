@@ -27,6 +27,8 @@ gem 'mini_magick'
 gem 'jquery-rails'
 gem 'momentjs-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem 'bootstrap_colorpicker_rails'
+gem 'chartjs-rails'
 # CSS
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
