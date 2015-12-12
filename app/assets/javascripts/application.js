@@ -18,9 +18,15 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require pickers
+//= require bootstrap-colorpicker
+//= require chart
+
+// Chart global configs
+// require chart_configs
 
 // You may include any languages (optional)
 //= require moment/pt-br
 
 //= require account
+//= require dashboard
 //= require entry
