@@ -1,32 +1,29 @@
 <footer class="bg-dark">
   <div class="container">
     <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-        <h4 class="section-heading">Sistema X</h4>
+      <div class="col-lg-12 text-center">
+        <h4 class="section-heading">Sistema Gênese</h4>
       </div>
-      <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-        <ul class="list-unstyled">
-          <li><%= link_to 'Login', new_user_session_path %></li>
-          <li><%= link_to 'Cadastrar', new_user_registration_path %></li>
-        </ul>
+
+      <div class="col-lg-12 text-center">
+        <%= link_to 'Inicio', root_path %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to 'Vantagens', resources_page_path %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to 'Sobre', about_page_path %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to 'Contato', contact_forms_path %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to 'Ajuda', help_page_path %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to 'Login', new_user_session_path %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to 'Cadastrar', new_user_registration_path %>
+        <br><br>
       </div>
-      <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-        <ul class="list-unstyled">
-          <li><%= link_to 'Inicio', root_path %></li>
-          <li><%= link_to 'Vantagens', resources_page_path %></li>
-          <li><%= link_to 'Sobre', about_page_path %></li>
-        </ul>
-      </div>
-      <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-        <ul class="list-unstyled">
-          <li><%= link_to 'Contato', contact_forms_path %></li>
-          <li><%= link_to 'Ajuda', help_page_path %></li>
-        </ul>
-      </div>
-      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 text-right">
-        <h5>
-          © 2015 - Sistema X
-        </h5>
+
+      <div class="col-lg-12 text-center">
+        <h5 class="section-heading">© 2015 - Gênese</h5>
       </div>
     </div>
   </div>
