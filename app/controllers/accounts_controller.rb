@@ -15,7 +15,7 @@ class AccountsController < ApplicationController
 
     respond_to do |format|
       if @account.save
-        format.html { redirect_to accounts_path, notice: I18n.t('activerecord.errors.messages.account_created') }
+        format.html { redirect_to accounts_path, notice: I18n.t('activerecord.messages.account_created') }
         format.json { render :index, status: :created, location: @account }
       else
         format.html { render :index }
@@ -29,7 +29,7 @@ class AccountsController < ApplicationController
 
     respond_to do |format|
       if @account.update(account_params)
-        format.html { redirect_to accounts_path, notice: I18n.t('activerecord.errors.messages.account_updated') }
+        format.html { redirect_to accounts_path, notice: I18n.t('activerecord.messages.account_updated') }
         format.json { render accounts_path, status: :ok, location: @account }
       else
         format.html { render accounts_path }
