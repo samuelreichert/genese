@@ -4,6 +4,10 @@ en:
       account:
         one: 'Account'
         other: 'Accounts'
+    errors:
+      messages:
+        account_created: 'Account created successfully!'
+        account_updated: 'Account updated successfully!'
   enums:
     account:
       currency_type:
