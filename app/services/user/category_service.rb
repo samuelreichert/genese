@@ -1,4 +1,4 @@
-class Account::AccountService
+class User::CategoryService
   def initialize(resource)
     @account = resource
   end

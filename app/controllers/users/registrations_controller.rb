@@ -18,7 +18,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super do |resource|
       # binding.pry
       if resource.persisted?
-        User::SignupService.new(resource).create_account
+        account = User::SignupService.new(resource).create_account
+        User::CategoryService.new(account).create_categories
       end
     end
   end
