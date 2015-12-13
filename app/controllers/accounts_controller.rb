@@ -11,11 +11,17 @@ class AccountsController < ApplicationController
   end
 
   def create
-    @account = Account.new()
-    @account.save
+    @account = current_user.accounts.new
 
-    Account::AccountService.new(@account).create_categories
-    respond_with(@account)
+    respond_to do |format|
+      if @account.save
+        format.html { redirect_to accounts_path, notice: I18n.t('activerecord.errors.messages.account_created') }
+        format.json { render :index, status: :created, location: @account }
+      else
+        format.html { render :index }
+        format.json { render json: @account.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
@@ -23,7 +29,7 @@ class AccountsController < ApplicationController
 
     respond_to do |format|
       if @account.update(account_params)
-        format.html { redirect_to accounts_path, notice: 'Conta atualizada com sucesso!' }
+        format.html { redirect_to accounts_path, notice: I18n.t('activerecord.errors.messages.account_updated') }
         format.json { render accounts_path, status: :ok, location: @account }
       else
         format.html { render accounts_path }

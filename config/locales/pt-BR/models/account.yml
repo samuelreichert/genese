@@ -4,6 +4,10 @@ pt-BR:
       account:
         one: 'Conta'
         other: 'Contas'
+    errors:
+      messages:
+        account_created: 'Conta criada com sucesso!'
+        account_updated: 'Conta atualizada com sucesso!'
   enums:
     account:
       currency_type:

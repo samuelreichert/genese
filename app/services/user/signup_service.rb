@@ -12,6 +12,7 @@ class User::SignupService
     # Exemplos do Matias
     # resource.accounts.create()
     # Account.create!(users: [resource], foo: :bar)
+    account
   end
 
   private
