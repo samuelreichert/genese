@@ -28,7 +28,7 @@ class ContactFormsController < ApplicationController
 
     respond_to do |format|
       if @contact_form.save
-        format.html { redirect_to @contact_form, notice: 'Contact form was successfully created.' }
+        format.html { redirect_to @contact_form, notice: I18n.t('activerecord.messages.contact_form_created') }
         format.json { render :show, status: :created, location: @contact_form }
       else
         format.html { render :new }

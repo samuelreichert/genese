@@ -4,6 +4,10 @@ pt-BR:
       entry:
         one: 'Lançamento'
         other: 'Lançamentos'
+    messages:
+      entry_created: 'Lançamento foi criado com sucesso'
+      entry_updated: 'Lançamento foi atualizado com sucesso'
+      entry_destroyed: 'Lançamento foi removido com sucesso'
   enums:
     entry:
       entries_type:

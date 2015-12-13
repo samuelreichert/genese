@@ -4,3 +4,5 @@ en:
       contact_form:
         one: 'Contact form'
         other: 'Contact forms'
+    messages:
+      contact_form_created: 'Contact form was successfully created'

@@ -4,3 +4,6 @@ en:
       category:
         one: 'Category'
         other: 'Categories'
+    messages:
+      category_created: 'Category was successfully created'
+      category_updated: 'Category was successfully updated'

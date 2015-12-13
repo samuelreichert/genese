@@ -4,3 +4,5 @@ pt-BR:
       contact_form:
         one: 'Formulário de Contato'
         other: 'Formulários de Contato'
+    messages:
+      contact_form_created: 'O formulário de contato foi criado com sucesso'

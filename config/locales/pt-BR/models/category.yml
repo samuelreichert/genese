@@ -4,3 +4,6 @@ pt-BR:
       category:
         one: 'Categoria'
         other: 'Categorias'
+    messages:
+      category_created: 'Categoria foi criada com sucesso'
+      category_updated: 'Categoria foi alterada com sucesso'

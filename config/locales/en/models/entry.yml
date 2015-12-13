@@ -4,6 +4,10 @@ en:
       entry:
         one: 'Entry'
         other: 'Entries'
+    messages:
+      entry_created: 'Entry was successfully created'
+      entry_updated: 'Entry was successfully updated'
+      entry_destroyed: 'Entry was successfully destroyed'
   enums:
     entry:
       entries_type:

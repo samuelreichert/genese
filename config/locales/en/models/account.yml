@@ -4,10 +4,9 @@ en:
       account:
         one: 'Account'
         other: 'Accounts'
-    errors:
-      messages:
-        account_created: 'Account created successfully!'
-        account_updated: 'Account updated successfully!'
+    messages:
+      account_created: 'Account was successfully created'
+      account_updated: 'Account was successfully updated'
   enums:
     account:
       currency_type:
