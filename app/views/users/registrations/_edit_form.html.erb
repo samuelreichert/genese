@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-8 col-lg-offset-2">
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
       <div class="row">
         <div class="col-lg-12">
           <%= f.error_notification %>
@@ -21,8 +21,8 @@
             </div>
 
             <div class="col-lg-6">
-              <%= f.input :picture, as: :file, required: false, input_html: {accept: 'image/*'} %>
-              <%= image_tag(resource.picture_url, width: 200) if resource.picture.present? %>
+              <%= f.input :avatar, as: :file, required: false, input_html: {accept: 'image/*'} %>
+              <%= image_tag(resource.avatar.url(:medium)) if resource.avatar.present? %>
             </div>
           </div>
         </div>
