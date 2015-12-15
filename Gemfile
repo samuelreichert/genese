@@ -34,6 +34,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'bootswatch-rails'
+# Image Upload
+gem 'paperclip'
+gem 'aws-sdk-v1'
+gem 'aws-sdk', '~> 2'
 # Application
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'

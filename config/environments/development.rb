@@ -43,4 +43,14 @@ Rails.application.configure do
   # config.action_mailer.delivery_method = :letter_opener
   config.mandrill_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :smtp
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'proj-2-development',
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    },
+    :s3_host_name => 's3-sa-east-1.amazonaws.com'
+  }
 end

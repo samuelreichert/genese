@@ -11,7 +11,7 @@
       <div class="col-lg-8 col-lg-offset-2">
         <div class="panel panel-default">
           <div class="panel-body">
-            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true}) do |f| %>
               <br><br>
               <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
@@ -23,7 +23,7 @@
 
                   <%= f.input :birth_date, as: :date_picker %>
 
-                  <%= f.input :picture, as: :file, required: false, input_html: {accept: 'image/*'} %>
+                  <%= f.input :avatar, as: :file, required: false, input_html: {accept: 'image/*'} %>
 
                   <%= f.input :email, required: true %>
                   <%= f.input :password, required: true, hint: (I18n.t('users.registrations.new.minimum_password_text', min_password: @minimum_password_length) if @minimum_password_length) %>

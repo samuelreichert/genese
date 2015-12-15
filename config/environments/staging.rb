@@ -87,4 +87,14 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
   config.mandrill_mailer.default_url_options = { host: 'http://genese-production.herokuapp.com' }
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'proj-2-production',
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+    :s3_host_name => 's3-sa-east-1.amazonaws.com'
+  }
 end
