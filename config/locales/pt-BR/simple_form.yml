@@ -18,7 +18,7 @@ pt-BR:
         remember_me: 'Lembrar senha?'
         password_confirmation: 'Digite novamente sua senha'
         birth_date: 'Data de Nascimento'
-        picture: 'Foto'
+        avatar: 'Foto'
         current_password: 'Senha atual'
       account:
         currency_type: 'Tipo de moeda'
