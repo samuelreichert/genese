@@ -1,19 +1,47 @@
-<h2>Change your password</h2>
+<section>
+  <div class="container" id="updatepassword">
+    <%= render 'shared/flash' %>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>Atualize sua senha</h2>
+        <hr>
+      </div>
 
-  <%= f.input :reset_password_token, as: :hidden %>
-  <%= f.full_error :reset_password_token %>
+      <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+              <br><br>
+              <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                  <%= f.error_notification %>
+                </div>
 
-  <div class="form-inputs">
-    <%= f.input :password, label: "New password", required: true, autofocus: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, label: "Confirm your new password", required: true %>
+                <div class="col-lg-8 col-lg-offset-2">
+                  <%= f.input :reset_password_token, as: :hidden %>
+                  <%= f.full_error :reset_password_token %>
+                </div>
+
+                <div class="col-lg-8 col-lg-offset-2">
+                  <%= f.input :password, label: I18n.t('simple_form.labels.user.new_password'), required: true, autofocus: true, hint: (I18n.t('users.registrations.new.minimum_password_text', min_password: @minimum_password_length) if @minimum_password_length) %>
+                  <%= f.input :password_confirmation, required: true %>
+                </div>
+
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                  <%= f.button :submit, "Alterar minha senha", class: 'btn btn-success btn-block' %>
+                </div>
+              </div>
+              <br><br>
+              <div class="row">
+                <div class="col-lg-12 text-center">
+                  <%= render "users/shared/links" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</section>

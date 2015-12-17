@@ -70,11 +70,11 @@ Rails.application.configure do
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 
-  # Use default logging formatter so that PID and timestamp are not suppressed.
-  config.log_formatter = ::Logger::Formatter.new
-
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Use default logging formatter so that PID and timestamp are not suppressed.
+  config.log_formatter = ::Logger::Formatter.new
 
   # ActionMailer Configuration
   config.action_mailer.smtp_settings = {
@@ -83,10 +83,19 @@ Rails.application.configure do
     :authentication => :plain,
     :user_name      => ENV['MANDRILL_USERNAME'],
     :password       => ENV['MANDRILL_APIKEY'],
-    :domain         => 'genese-production.herokuapp.com',
+    :domain         => 'proj-genesis.herokuapp.com',
     :enable_starttls_auto => true
   }
-  config.mandrill_mailer.default_url_options = { host: 'http://genese-production.herokuapp.com' }
+
+  # Mandril mailer configuration
+  config.mandrill_mailer.default_url_options = { host: 'http://proj-genesis.herokuapp.com' }
+
+  # ActionMailer configuration
+  config.action_mailer.default_url_options = { host: 'http://proj-genesis.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  Rails.application.routes.default_url_options[:host] = 'proj-genesis.herokuapp.com'
 
   config.paperclip_defaults = {
     :storage => :s3,

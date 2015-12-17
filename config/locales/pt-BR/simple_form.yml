@@ -20,6 +20,8 @@ pt-BR:
         birth_date: 'Data de Nascimento'
         avatar: 'Foto'
         current_password: 'Senha atual'
+        password_confirmation: 'Confirme sua nova senha'
+        new_password: 'Nova senha'
       account:
         currency_type: 'Tipo de moeda'
         entries_order: 'Ordem dos Lançamentos'

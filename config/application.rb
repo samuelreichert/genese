@@ -30,6 +30,7 @@ module ProjII2
 
     config.to_prepare do
       Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "landing_page" }
+      Devise::PasswordsController.layout "landing_page"
     end
   end
 end

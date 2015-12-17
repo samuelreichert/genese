@@ -13,6 +13,8 @@ en:
     labels:
       user:
         birth_date: 'Date of Birth'
+        password_confirmation: 'Confirm your new password'
+        new_password: 'New password'
       account:
         currency_type: 'Currency Type'
         entries_order: 'Entries Order'
