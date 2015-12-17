@@ -1,15 +1,41 @@
-<h2>Forgot your password?</h2>
+<section>
+  <div class="container" id="forgotpassword">
+    <%= render 'shared/flash' %>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>Esqueci minha senha</h2>
+        <hr>
+      </div>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+      <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+              <br><br>
+              <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                  <%= f.error_notification %>
+                </div>
+
+                <div class="col-lg-8 col-lg-offset-2">
+                  <%= f.input :email, required: true, autofocus: true, placeholder: 'Digite seu e-mail' %>
+                </div>
+
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                  <%= f.button :submit, "Resetar Senha", class: 'btn btn-success btn-block' %>
+                </div>
+              </div>
+              <br><br>
+              <div class="row">
+                <div class="col-lg-12 text-center">
+                  <%= render "users/shared/links" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</section>

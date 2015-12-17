@@ -83,10 +83,19 @@ Rails.application.configure do
     :authentication => :plain,
     :user_name      => ENV['MANDRILL_USERNAME'],
     :password       => ENV['MANDRILL_APIKEY'],
-    :domain         => 'genese-production.herokuapp.com',
+    :domain         => 'proj-genesis-staging.herokuapp.com',
     :enable_starttls_auto => true
   }
-  config.mandrill_mailer.default_url_options = { host: 'http://genese-production.herokuapp.com' }
+
+  # Mandril mailer configuration
+  config.mandrill_mailer.default_url_options = { host: 'http://proj-genesis-staging.herokuapp.com' }
+
+  # ActionMailer configuration
+  config.action_mailer.default_url_options = { host: 'http://proj-genesis-staging.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  Rails.application.routes.default_url_options[:host] = 'proj-genesis-staging.herokuapp.com'
 
   config.paperclip_defaults = {
     :storage => :s3,
