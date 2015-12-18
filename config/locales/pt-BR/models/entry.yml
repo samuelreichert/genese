@@ -15,10 +15,6 @@ pt-BR:
         expense: 'Despesa'
       repeat_frequency:
         yearly: Anual
-        biannual: Semestral
-        quarterly: Trimestral
-        bimonthly: Bimestral
         monthly: Mensal
-        fortnightly: Quinzenal
         weekly: Semanal
         daily: 'Diário'

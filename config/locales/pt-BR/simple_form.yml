@@ -37,6 +37,7 @@ pt-BR:
         repeat_frequency: 'Qual frequência?'
         note: 'Observações'
         paid: 'Está pago?'
+        category_id: 'Categoria'
       category:
         name: 'Nome'
         color: 'Cor'
