@@ -5,38 +5,75 @@
       <h5 class='muted'>Nenhum lançamento encontrado neste período</h5>
     </div>
   <% else %>
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="col-lg-6">
+          <!-- TODO: Montar aqui a busca por categorias -->
+        </div>
+        <div class="col-lg-6">
+          <!-- TODO: Montar aqui a busca por descrição -->
+        </div>
+      </div>
+    </div>
     <div class='col-lg-12'>
-      <table class='table table-striped table-hover'>
+      <table class='table table-hover entry-table'>
         <tbody>
           <% @entries.each do |entry| %>
             <tr>
-              <td>
-                <% if @entries.entries_type == Entry.entries_types[:income] %>
+              <td class="col-lg-1">
+                <% if entry.entries_type == Entry.entries_types[:income] %>
                   <i class='fa fa-plus-square' style='color: #2ecc71;'></i>
                 <% else %>
                   <i class='fa fa-minus-square' style='color: #e74c3c;'></i>
                 <% end %>
               </td>
-              <td><%= "#{Account.currency_types[@account.curreny_type]} #{entry.value}"%></td>
-              <td><%= link_to entry.description, entry %></td>
-              <td>
-                <i class='fa fa-circle' style="color:<%= entry.category.color %>;"></i>
-                <%= entry.category.name %>
+              <td class="col-lg-1"><%= number_to_currency(entry.value, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %></td>
+              <td class="col-lg-1">
+                <%= I18n.l(entry.date) %>
               </td>
-              <td>
-                <%= link_to edit_entry_path(entry) do %>
-                  <i class='fa fa-pencil'></i>
+              <td class="col-lg-6"><%= link_to entry.description, entry %></td>
+              <td class="col-lg-2">
+                <% if entry.category %>
+                  <i class='fa fa-circle' style="color:<%= entry.category.color %>;"></i>
+                  <%= entry.category.name %>
                 <% end %>
               </td>
-              <td>
-                <%= link_to entry, method: :delete, data: { confirm: 'Deseja mesmo deletar este lançamento?' } do %>
-                  <i class='fa fa-trash'></i>
+              <td class="col-lg-1 text-right">
+                <%= link_to edit_entry_path(entry), class: 'link-icon' do %>
+                  <i class='fa fa-lg fa-pencil'></i>
                 <% end %>
+                <%= link_to entry, method: :delete, data: { confirm: 'Deseja mesmo deletar este lançamento?' }, class: 'link-icon' do %>
+                  <i class='fa fa-lg fa-trash'></i>
+                <% end %>
+                <!-- TODO: flag para marcar como pago (usar icons) -->
               </td>
             </tr>
           <% end %>
         </tbody>
       </table>
+    </div>
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-3 text-right">
+          <span class="text-muted">Receita total</span>
+          <h6 class="text-success">
+            <%= number_to_currency(@totalizer_incomes, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
+          </h6>
+        </div>
+        <div class="col-lg-3 text-right">
+          <span class="text-muted">Despesa total</span>
+          <h6 class="text-danger">
+            <%= number_to_currency(@totalizer_expenses, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
+          </h6>
+        </div>
+        <div class="col-lg-3 text-right">
+          <span class="text-muted">Previsto no fim do mês</span>
+          <h6 class="text-primary">
+            <%= number_to_currency(@totalizer_difference, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
+          </h6>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

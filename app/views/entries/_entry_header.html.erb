@@ -17,13 +17,13 @@
 
   <div class="col-lg-4 text-center">
     <h5 class="month-selector">
-      <%= link_to '#' do %>
+      <%= link_to @last_month_path do %>
         <span class="fa fa-chevron-left"></span>
       <% end %>
 
-      <span><%= I18n.t("date.month_names")[Date.today.month] %></span>
+      <span><%= formatted_current_date @current_date %></span>
 
-      <%= link_to '#' do %>
+      <%= link_to @next_month_path do %>
         <span class="fa fa-chevron-right"></span>
       <% end %>
     </h5>
