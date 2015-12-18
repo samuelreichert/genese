@@ -3,7 +3,7 @@
     <p class="lead">Receitas a receber</p>
   </div>
 
-  <% if @entries.empty? %>
+  <% if @incomes.empty? %>
     <%= render 'no_data' %>
   <% else %>
     <div class="col-lg-12">
@@ -11,8 +11,17 @@
         <tbody>
           <% @incomes.each do |income| %>
             <tr>
-              <td>
-                <%= income.description %>
+              <td class="col-lg-1 dash_icon_col">
+                <i class='fa fa-plus-square' style='color: #2ecc71;'></i>
+              </td>
+              <td class="col-lg-9">
+                <%= link_to income, class: 'link_block' do %>
+                  <%= income.description %><br>
+                  <small><%= I18n.l income.date %></small>
+                <% end %>
+              </td>
+              <td class="col-lg-9 vertical-middle">
+                <%= number_to_currency(income.value, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
               </td>
             </tr>
           <% end %>
