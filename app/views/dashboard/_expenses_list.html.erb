@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-lg-12">
+    <p class="lead">Despesas a pagar</p>
+  </div>
+
+  <% if @expenses.empty? %>
+    <%= render 'no_data' %>
+  <% else %>
+    <div class="col-lg-12">
+      <table class="table table-condensed">
+        <tbody>
+          <% @expenses.each do |expense| %>
+            <tr>
+              <td class="col-lg-1 vertical-middle">
+                <i class='fa fa-minus-square' style='color: #e74c3c;'></i>
+              </td>
+              <td class="col-lg-9">
+                <%= link_to expense, class: 'link_block' do %>
+                  <%= expense.description %><br>
+                  <small><%= I18n.l expense.date %></small>
+                <% end %>
+              </td>
+              <td class="col-lg-9 vertical-middle">
+                <%= number_to_currency(expense.value, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>

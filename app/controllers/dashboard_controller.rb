@@ -1,25 +1,29 @@
 class DashboardController < ApplicationController
   def index
-    @account = current_account
-    @entries = month_entries
+    @current_account = current_account
+    @entries = current_entries
 
-    @incomes = @entries.where(entries_type: 'income')
-    @expenses = @entries.where(entries_type: 'expense')
-
-    @balance = @incomes.map { |i| i[:value] }.sum
-    @expenditure = @expenses.map { |e| e[:value] }.sum
-
-    @currency_simbol = mount_currency_simbol
+    mount_entries_lists
+    mount_totalizers
   end
 
   private
-  def month_entries
-    @account.entries.where(
-      date: Date.today.beginning_of_month..Date.today.end_of_month
-    )
+  def current_entries
+    begin_date = Date.today.beginning_of_month
+    end_date = Date.today.end_of_month
+    @current_account.entries.where(date: begin_date...end_date)
   end
 
-  def mount_currency_simbol
-    Account.currency_types[@account.currency_type]
+  def mount_entries_lists
+    @all_incomes = @entries.where(entries_type: 'income')
+    @all_expenses = @entries.where(entries_type: 'expense')
+
+    @incomes = @all_incomes.where(paid: false)
+    @expenses = @all_expenses.where(paid: false)
+  end
+
+  def mount_totalizers
+    @totalizer_incomes = @all_incomes.sum :value
+    @totalizer_expenses = @all_expenses.sum :value
   end
 end
