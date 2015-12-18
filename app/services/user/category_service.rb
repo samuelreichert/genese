@@ -4,7 +4,8 @@ class User::CategoryService
   end
 
   def create_categories
-    default_categories = DefaultCategory.all
-    @account.categories.create(default_categories.as_json)
+    DefaultCategory.find_each do |category|
+      @account.categories.create category.attributes.except('id')
+    end
   end
 end
