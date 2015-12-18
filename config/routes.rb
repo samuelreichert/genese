@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get "/help", to: "home#help", as: "help_page"
 
   get "/dashboard", to: "dashboard#index", as: "dashboard_page"
+  get "/reports", to: "reports#index", as: "reports_page"
 
   resources :accounts, only: [:index, :show, :create, :update]
   resources :categories, only: [:new, :edit, :create, :update, :destroy]
