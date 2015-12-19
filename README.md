@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/samuelreichert/projII.svg?branch=master)](https://travis-ci.org/samuelreichert/projII)
 
-# Projeto Interdisciplinar Integrado 2
+# Projeto Gênese
+
+## Projeto Interdisciplinar Integrado 2
 * Disciplina: _Projeto Interdisciplinar Integrado 2_
 * Semestre: _6º Semestre_
 * Curso: _Sistemas para Internet_
