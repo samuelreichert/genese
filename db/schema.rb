@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215140609) do
+ActiveRecord::Schema.define(version: 20151219020908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accounts", force: true do |t|
-    t.boolean "entries_order",                                 default: false
-    t.string  "currency_type",                                 default: "R$",  null: false
-    t.integer "reminder_days_before",                          default: 0
-    t.boolean "reminder_active",                               default: false
-    t.decimal "total_balance",        precision: 11, scale: 2
-    t.decimal "total_expenditure",    precision: 11, scale: 2
-    t.boolean "public",                                        default: false
+    t.boolean "entries_order",        default: false
+    t.string  "currency_type",        default: "R$",  null: false
+    t.integer "reminder_days_before", default: 0
+    t.boolean "reminder_active",      default: false
+    t.boolean "public",               default: false
+    t.string  "name",                 default: "",    null: false
+    t.integer "owner",                default: 0,     null: false
   end
 
   create_table "accounts_users", id: false, force: true do |t|
@@ -67,9 +67,11 @@ ActiveRecord::Schema.define(version: 20151215140609) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "categories", force: true do |t|
-    t.string  "name"
-    t.string  "color"
-    t.integer "account_id"
+    t.string   "name"
+    t.string   "color"
+    t.integer  "account_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "categories", ["account_id"], name: "index_categories_on_account_id", using: :btree
@@ -79,25 +81,30 @@ ActiveRecord::Schema.define(version: 20151215140609) do
     t.string   "message",    default: "", null: false
     t.datetime "created_at"
     t.boolean  "readed"
+    t.datetime "updated_at"
   end
 
   create_table "default_categories", force: true do |t|
-    t.string "name"
-    t.string "color"
+    t.string   "name"
+    t.string   "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "entries", force: true do |t|
-    t.string  "entries_type",                                           null: false
-    t.string  "description",                               default: "", null: false
-    t.string  "note"
-    t.date    "date"
-    t.decimal "value",            precision: 11, scale: 2,              null: false
-    t.boolean "paid"
-    t.boolean "repeat"
-    t.integer "repeat_times"
-    t.string  "repeat_frequency"
-    t.integer "account_id"
-    t.integer "category_id"
+    t.string   "entries_type",                                           null: false
+    t.string   "description",                               default: "", null: false
+    t.text     "note"
+    t.date     "date"
+    t.decimal  "value",            precision: 11, scale: 2,              null: false
+    t.boolean  "paid"
+    t.boolean  "repeat"
+    t.integer  "repeat_times"
+    t.string   "repeat_frequency"
+    t.integer  "account_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "entries", ["account_id"], name: "index_entries_on_account_id", using: :btree
