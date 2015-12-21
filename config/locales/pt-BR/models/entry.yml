@@ -14,7 +14,7 @@ pt-BR:
         income: 'Receita'
         expense: 'Despesa'
       repeat_frequency:
-        yearly: Anual
-        monthly: Mensal
-        weekly: Semanal
-        daily: 'Diário'
+        years: Anual
+        months: Mensal
+        weeks: Semanal
+        days: 'Diário'

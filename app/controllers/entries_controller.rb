@@ -15,6 +15,7 @@ class EntriesController < ApplicationController
   # GET /entries/1
   # GET /entries/1.json
   def show
+    @current_account = current_account
   end
 
   # GET /entries/new
@@ -27,6 +28,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/1/edit
   def edit
+    @current_account = current_account
     @categories = categories_ordered
   end
 
@@ -34,12 +36,11 @@ class EntriesController < ApplicationController
   # POST /entries.json
   def create
     @current_account = current_account
-    @entry = @current_account.entries.new(entry_params)
-    # entries_saved = save_entries
+    entries_saved = Entry::SaveEntryService.new(@current_account, entry_params).save_entries
 
     respond_to do |format|
-      if @entry.save
-        format.html { redirect_to :index, notice: I18n.t('activerecord.messages.entry_created') }
+      if entries_saved
+        format.html { redirect_to entries_path, notice: I18n.t('activerecord.messages.entry_created') }
         format.json { render :show, status: :created, location: @entry }
       else
         format.html { render :new }
@@ -53,7 +54,7 @@ class EntriesController < ApplicationController
   def update
     respond_to do |format|
       if @entry.update(entry_params)
-        format.html { redirect_to @entry, notice: I18n.t('activerecord.messages.entry_updated') }
+        format.html { redirect_to entries_path, notice: I18n.t('activerecord.messages.entry_updated') }
         format.json { render :show, status: :ok, location: @entry }
       else
         format.html { render :edit }
@@ -81,7 +82,9 @@ class EntriesController < ApplicationController
     date = @current_date
     date_begin = date.beginning_of_month
     date_end = date.end_of_month
-    @current_account.entries.where(date: date_begin..date_end)
+    @current_account.entries
+      .where(date: date_begin..date_end)
+      .order(date: :asc, description: :asc)
   end
 
   def mount_totalizers
@@ -104,41 +107,6 @@ class EntriesController < ApplicationController
   def categories_ordered
     @current_account.categories.order(:name)
   end
-
-  # def save_entries
-  #   if @create_params[:repeat] == '1'
-  #     @params_array = Array.new
-  #     repeat = @create_params[:repeat_times].to_i
-
-  #     repeat.times do |i|
-  #       new_params = @create_params.dup
-  #       date = new_params[:date]
-
-  #       new_date = case new_params[:repeat_frequency]
-  #         when "yearly" then date.to_date + i.years
-  #         when "monthly" then date.to_date + i.months
-  #         when "weekly" then date.to_date + i.weeks
-  #         when "daily" then date.to_date + i.days
-  #       end
-  #       new_params[:date] = new_date.to_s
-  #       @params_array.push new_params
-  #       binding.pry
-  #     end
-
-  #     entries = @current_account.entries.new(@params_array)
-  #     success = entries.map(&:save)
-  #     if success.all?
-  #       return true
-  #     else
-  #       errored = entries.select{|entry| !entry.errors.blank?}
-
-  #       raise ActiveRecord::Rollback
-  #     end
-  #   else
-  #     entry = @current_account.entries.new(@create_params)
-  #     entry.save
-  #   end
-  # end
 
   def entry_params
     params.require(:entry).permit(

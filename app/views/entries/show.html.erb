@@ -1,4 +1,66 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h3>Lançamento - <%= @entry.description %></h3>
+          </div>
 
-<%= link_to 'Edit', edit_entry_path(@entry) %> |
-<%= link_to 'Back', entries_path %>
+          <div class="col-lg-10 col-lg-offset-1">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <h6>
+                  <dl class="dl-horizontal">
+                    <dt>Tipo de lançamento:</dt>
+                    <dd><%= Entry.entries_types_i18n[@entry.entries_type] %></dd>
+
+                    <dt>Descrição:</dt>
+                    <dd><%= @entry.description %></dd>
+
+                    <dt>Valor:</dt>
+                    <dd><%= number_to_currency(@entry.value, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %></dd>
+
+                    <dt>Data:</dt>
+                    <dd><%= I18n.l @entry.date %></dd>
+
+                    <% if @entry.category %>
+                      <dt>Categoria:</dt>
+                      <dd>
+                        <i class="fa fa-circle" style="color:<%= @entry.category.color %>;"></i>
+                        <%= @entry.category.name %>
+                      </dd>
+                    <% else %>
+                      <dt>Categoria:</dt>
+                      <dd>Sem categoria</dd>
+                    <% end %>
+
+                    <dt>Está pago?</dt>
+                    <dd><%= @entry.paid ? 'Sim' : 'Não' %></dd>
+
+                    <% if @entry.paid %>
+                      <dt>Parcelado em:</dt>
+                      <dd><%= @entry.repeat_times %> vezes</dd>
+                    <% end %>
+                  </dl>
+                </h6>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <%= link_to :back, class: "btn btn-default" do %>
+                  <span class="fa fa-chevron-left"></span>
+                  Voltar
+                <% end %>
+              </div>
+              <div class="col-lg-6 text-right">
+                <%= link_to 'Editar Lançamento', edit_entry_path(@entry), class: 'btn btn-primary' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
