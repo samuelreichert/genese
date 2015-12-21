@@ -19,31 +19,16 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
+  get "/about", to: "home#about", as: "about_page"
+  get "/dashboard", to: "dashboard#index", as: "dashboard_page"
   get "/index", to: "home#index", as: "index_page"
   get "/resources", to: "home#resources", as: "resources_page"
-  get "/about", to: "home#about", as: "about_page"
-  # get "/contact", to: "home#contact", as: "contact_page"
-  get "/help", to: "home#help", as: "help_page"
 
-  get "/dashboard", to: "dashboard#index", as: "dashboard_page"
-  get "/reports", to: "reports#index", as: "reports_page"
-
-  resources :accounts, only: [:index, :show, :create, :update]
+  resources :accounts, only: [:index, :new, :create, :destroy]
   resources :categories, only: [:new, :edit, :create, :update, :destroy]
-  resources :contact_forms, only: [:index, :show, :new, :create]
+  resources :contact_forms, only: [:index, :show, :create]
   resources :entries
-
-  # resources :articles do
-  #   resources :comments, only: [:index, :new, :create]
-  # end
-  # resources :comments, only: [:show, :edit, :update, :destroy]
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  resources :reports, only: [:index]
+  resources :settings, only: [:index, :update]
+  resources :tutorials, only: [:index, :show]
 end
