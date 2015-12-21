@@ -15,3 +15,21 @@ body {
 .not-found-box {
   padding: 128px 0;
 }
+
+.link-icon {
+  margin-left: 8px;
+  color: #95a5a6;
+  text-decoration: none;
+  &:hover {
+    color: #bdc3c7;
+  }
+
+  &:active,
+  &:focus,
+  &:visited {
+    color: #95a5a6;
+    &:hover {
+      color: #bdc3c7;
+    }
+  }
+}

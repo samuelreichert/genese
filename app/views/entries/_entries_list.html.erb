@@ -31,14 +31,14 @@
               <td class="col-lg-1">
                 <%= I18n.l(entry.date) %>
               </td>
-              <td class="col-lg-6"><%= link_to entry.description, entry %></td>
+              <td class="col-lg-5"><%= link_to entry.description, entry %></td>
               <td class="col-lg-2">
                 <% if entry.category %>
                   <i class='fa fa-circle' style="color:<%= entry.category.color %>;"></i>
                   <%= entry.category.name %>
                 <% end %>
               </td>
-              <td class="col-lg-1 text-right">
+              <td class="col-lg-2 text-right">
                 <%= link_to edit_entry_path(entry), class: 'link-icon' do %>
                   <i class='fa fa-lg fa-pencil'></i>
                 <% end %>
@@ -46,6 +46,9 @@
                   <i class='fa fa-lg fa-trash'></i>
                 <% end %>
                 <!-- TODO: flag para marcar como pago (usar icons) -->
+                <%= link_to '#', class: 'link-icon', title: (entry.paid ? 'Marcar como não pago' : 'Marcar como pago'), data: {toggle: 'tooltip', placement: 'bottom'} do %>
+                  <i class='fa fa-lg fa-check' style="color:<%= if entry.paid then '#2ecc71' end %>;"></i>
+                <% end %>
               </td>
             </tr>
           <% end %>

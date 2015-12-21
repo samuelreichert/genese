@@ -14,7 +14,7 @@ en:
         income: 'Income'
         expense: 'Expense'
       repeat_frequency:
-        yearly: Yearly
-        monthly: Monthly
-        weekly: Weekly
-        daily: Daily
+        years: Yearly
+        months: Monthly
+        weeks: Weekly
+        days: Daily
