@@ -2,17 +2,6 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
   respond_to :html, :json
 
-  # GET /categories
-  # GET /categories.json
-  # def index
-  #   @categories = Category.all
-  # end
-
-  # GET /categories/1
-  # GET /categories/1.json
-  # def show
-  # end
-
   # GET /categories/new
   def new
     @account = current_account
@@ -31,8 +20,8 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to accounts_path, notice: I18n.t('activerecord.messages.category_created') }
-        format.json { render accounts_path, status: :created, location: @category }
+        format.html { redirect_to settings_path, notice: I18n.t('activerecord.messages.category_created') }
+        format.json { render settings_path, status: :created, location: @category }
       else
         format.html { render :new }
         format.json { render json: @category.errors, status: :unprocessable_entity }
@@ -45,8 +34,8 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to accounts_path, notice: I18n.t('activerecord.messages.category_updated') }
-        format.json { render accounts_path, status: :ok, location: @category }
+        format.html { redirect_to settings_path, notice: I18n.t('activerecord.messages.category_updated') }
+        format.json { render settings_path, status: :ok, location: @category }
       else
         format.html { render :edit }
         format.json { render json: @category.errors, status: :unprocessable_entity }
@@ -59,7 +48,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
     respond_to do |format|
-      format.html { redirect_to accounts_path, notice: 'Category was successfully destroyed.' }
+      format.html { redirect_to settings_path, notice: 'Category was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
