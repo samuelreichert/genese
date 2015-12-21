@@ -15,10 +15,10 @@
               <%= category.name %>
             </div>
             <div class="col-lg-4 text-right">
-              <%= link_to edit_category_path(category) do %>
+              <%= link_to edit_category_path(category), class: 'link-icon' do %>
                 <span class="fa fa-lg fa-pencil">
               <% end %>
-              <%= link_to category, method: :delete, data: { confirm: 'Deseja realmente deletar esta categoria?' }, style: 'margin-left: 8px;' do %>
+              <%= link_to category, method: :delete, data: { confirm: 'Deseja realmente deletar esta categoria?' }, style: 'margin-left: 8px;', class: 'link-icon' do %>
                 <span class="fa fa-lg fa-trash"></span>
               <% end %>
             </div>
@@ -27,6 +27,9 @@
       <% end %>
     </ul>
 
-    <%= link_to 'Nova Categoria', new_category_path, class: 'btn btn-default' %>
+    <%= link_to new_category_path, class: 'btn btn-default' do %>
+      <i class="fa fa-plus"></i>
+      Nova Categoria
+    <% end %>
   </div>
 </div>

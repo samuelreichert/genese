@@ -2,16 +2,16 @@ class AccountsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @account = current_account
-    @categories = categories_ordered
-    respond_with(@account)
+    @accounts = current_user.accounts
   end
 
-  def show
+  # GET /entries/new
+  def new
+    @account = current_user.accounts.new
   end
 
   def create
-    @account = current_user.accounts.new
+    @account = current_user.accounts.new(account_params)
 
     respond_to do |format|
       if @account.save
@@ -24,17 +24,13 @@ class AccountsController < ApplicationController
     end
   end
 
-  def update
-    @account = current_account
-
+  # DELETE /categories/1
+  # DELETE /categories/1.json
+  def destroy
+    @account.destroy
     respond_to do |format|
-      if @account.update(account_params)
-        format.html { redirect_to accounts_path, notice: I18n.t('activerecord.messages.account_updated') }
-        format.json { render accounts_path, status: :ok, location: @account }
-      else
-        format.html { render accounts_path }
-        format.json { render json: @account.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to accounts_path, notice: I18n.t('activerecord.messages.account_destroyed') }
+      format.json { head :no_content }
     end
   end
 
@@ -46,9 +42,5 @@ class AccountsController < ApplicationController
       :reminder_days_before,
       :reminder_active
     )
-  end
-
-  def categories_ordered
-    @account.categories.order(:name)
   end
 end
