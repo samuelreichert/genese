@@ -14,13 +14,13 @@
               <td class="col-lg-1 vertical-middle">
                 <i class='fa fa-minus-square' style='color: #e74c3c;'></i>
               </td>
-              <td class="col-lg-9">
+              <td class="col-lg-8">
                 <%= link_to expense, class: 'link_block' do %>
                   <%= expense.description %><br>
                   <small><%= I18n.l expense.date %></small>
                 <% end %>
               </td>
-              <td class="col-lg-9 vertical-middle">
+              <td class="col-lg-3 vertical-middle text-right">
                 <%= number_to_currency(expense.value, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
               </td>
             </tr>
