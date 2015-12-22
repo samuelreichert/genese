@@ -1,0 +1,61 @@
+<%= simple_form_for(@account) do |f| %>
+  <div class="row">
+    <div class="col-lg-12">
+      <%= f.error_notification %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <%= f.input :name, required: true %>
+      <%= f.hidden_field :owner, :value => current_user.id %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%= f.label :currency_type, class: 'control-label' %>
+        <div>
+          <%= f.input_field :currency_type, as: :radio_buttons, item_wrapper_tag: false, item_label_class: 'radio-inline' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <%= f.input :reminder_active, input_html: {class: 'reminder_active'} %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <%= f.input :reminder_days_before, collection: 0..5, input_html: {include_blank: false, class: "reminder_days_before", disabled: (!@account.reminder_active)} %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <%= f.input :public %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <%= f.input :users, collection: User.all, input_html: { multiple: true, class: 'select_users' } %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <%= link_to :back, class: 'btn btn-default' do %>
+        <span class="fa fa-chevron-left"></span>
+        <span>Voltar</span>
+      <% end %>
+    </div>
+    <div class="col-lg-6 text-right">
+      <%= f.button :submit, class: 'btn-success' %>
+    </div>
+  </div>
+<% end %>

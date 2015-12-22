@@ -20,6 +20,8 @@
 //= require pickers
 //= require bootstrap-colorpicker
 //= require chart
+//= require select2
+//= require select2_locale_pt-BR
 
 // Chart global configs
 // require chart_configs
