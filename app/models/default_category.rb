@@ -1,3 +1,3 @@
 class DefaultCategory < ActiveRecord::Base
-  validates_presence_of :name, :color
+  validates :name, :color, presence: true
 end
