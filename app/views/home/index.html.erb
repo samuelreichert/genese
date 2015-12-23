@@ -1,11 +1,12 @@
 <header>
   <div class="header-content">
     <div class="header-content-inner">
-      <h1>Gênese | Sistema de Controle Financeiro Pessoal</h1>
-      <hr>
+      <h1>Gênese - O seu sistema de controle financeiro</h1>
+      <hr class="extended">
       <p>
-        O Sistema Gênese é a ferramenta perfeita para cuidar <br>
-        das suas finanças de modo fácil e rápido.
+        Gênese é um sistema 100% web, ou seja, pode ser acessado através <br>
+        de dispositivos mobiles com o uso do Gênese App e também <br>
+        por qualquer desktop que tenha acesso a internet.
       </p>
       <%= form_tag(new_user_registration_path, method: "get", class: 'form-inline') do %>
         <%= email_field_tag :email, nil, required: true, class: "form-control input-lg email-input", placeholder: 'Digite seu e-mail' %>
@@ -35,23 +36,23 @@
           </div>
           <div class="col-lg-3 col-md-6 text-center">
               <div class="service-box">
-                  <i class="fa fa-5x fa-thumbs-up wow bounceIn text-primary" data-wow-delay=".1s"></i>
-                  <h3>Ready to Ship</h3>
-                  <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                  <i class="fa fa-5x fa-envelope wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                  <h3>E-mails</h3>
+                  <p class="text-muted">Notificações via e-mail, para lhe ajudar a manter suas contas e finanças sempre em dia.</p>
               </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
               <div class="service-box">
-                  <i class="fa fa-5x fa-android wow bounceIn text-primary" data-wow-delay=".2s"></i>
-                  <h3>Up to Date</h3>
-                  <p class="text-muted">We update dependencies to keep things fresh.</p>
+                  <i class="fa fa-5x fa-bar-chart wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                  <h3>Dashboard</h3>
+                  <p class="text-muted">Visualização de despesas e gastos de modo facilitador e ágil. Informações ao seu alcance, em apenas uma tela.</p>
               </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
               <div class="service-box">
-                  <i class="fa fa-5x fa-envelope wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                  <h3>Made with Love</h3>
-                  <p class="text-muted">You have to make your websites with love these days!</p>
+                  <i class="fa fa-5x fa-android wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                  <h3>Aplicativo mobile</h3>
+                  <p class="text-muted">Lançamentos de forma fácil e rápida, é possível. Com o aplicativo Gênese você tem a facilidade de acesso na palma de suas mãos!</p>
               </div>
           </div>
       </div>
