@@ -41,6 +41,9 @@ pt-BR:
       category:
         name: 'Nome'
         color: 'Cor'
+      contact_form:
+        email: 'E-mail'
+        message: 'Mensagem'
     prompts:
       user:
         gender: 'Genêro'
