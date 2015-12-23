@@ -1,4 +1,40 @@
-<p id="notice"><%= notice %></p>
+<section>
+  <div class="container" id="contact_form">
+    <%= render 'shared/flash' %>
 
-<%= link_to 'Edit', edit_contact_form_path(@contact_form) %> |
-<%= link_to 'Back', contact_forms_path %>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>Formulário de contato</h2>
+        <hr>
+      </div>
+
+      <div class="col-lg-6 col-lg-offset-3">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-10 col-lg-offset-1 text-center">
+                <h3>Mensagem enviada!</h3>
+              </div>
+              <div class="col-lg-10 col-lg-offset-1 text-left">
+                <br>
+                <p>
+                  E-mail: <%= @contact_form.email %> <br>
+                  Mensagem: <%= @contact_form.message %> <br>
+                </p>
+              </div>
+              <div class="col-lg-10 col-lg-offset-1 text-center">
+                <br><br><p>Aguarde, em breve entraremos em contato com você!</p>
+              </div>
+              <div class="col-lg-12">
+                <%= link_to :back, class: "btn btn-default" do %>
+                  <span class="fa fa-chevron-left"></span>
+                  Voltar
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

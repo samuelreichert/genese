@@ -20,10 +20,14 @@ hr {
   border-width: 3px;
   max-width: 10rem;
   border-radius: 2px;
-}
 
-hr.light {
-  border-color: white;
+  &.light {
+    border-color: white;
+  }
+
+  &.extended {
+    max-width: 100rem;
+  }
 }
 
 a {
@@ -195,14 +199,13 @@ header {
 
     .header-content-inner {
       h1 {
-        font-weight: 700;
-        text-transform: uppercase;
+        font-weight: 600;
         margin-top: 0;
         margin-bottom: 0;
       }
 
       hr {
-        margin: 30px auto;
+        margin: 16px auto;
       }
       p {
         font-weight: 300;

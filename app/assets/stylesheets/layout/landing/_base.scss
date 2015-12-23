@@ -5,6 +5,7 @@ header {
 
 #title {
   background-color: #00E676;
+  padding-bottom: 42px;
 
   h1 {
     color: white;
@@ -15,11 +16,13 @@ header {
   background-color: white;
 }
 
+#about,
 #resources,
+#contact_form,
 #login,
 #register,
 #updatepassword,
-#forgotpassword, {
+#forgotpassword {
   padding-bottom: 98px;
 }
 
