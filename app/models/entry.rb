@@ -5,5 +5,5 @@ class Entry < ActiveRecord::Base
   enum entries_type: { income: "income", expense: "expense" }
   enum repeat_frequency: [:years, :months, :weeks, :days]
 
-  validates_presence_of :entries_type, :description, :date, :value, :account_id, :category_id
+  validates :entries_type, :description, :date, :value, :account_id, :category_id, presence: true
 end
