@@ -33,4 +33,4 @@
 //= require dashboard
 //= require entry
 
-//= require chart/data_requester
+//= require chart/pie_chart

@@ -1,9 +1,24 @@
+<% content_for :included_javascript do %>
+  <% javascript_tag do %>
+    $(document).ready((function(_this) {
+      return function() {
+        var element = $('#topCategoriesChart');
+        var categories = <%= @categories.to_json.html_safe %>;
+
+        if(element.length > 0) {
+          new _this.PieChart(categories, element).render();
+        }
+      };
+    })(this));
+  <% end %>
+<% end %>
+
 <div class="row">
   <div class="col-lg-12">
     <p class="lead">Top 5 categorias deste mês</p>
   </div>
 
-  <% if @entries.empty? %>
+  <% if @all_expenses.empty? %>
     <div class="col-lg-12 text-center not-found-box">
       <i class='fa fa-exclamation-circle fa-4x muted'></i>
       <h5 class='muted'>Nenhum lançamento encontrado para montar este gráfico</h5>
@@ -12,12 +27,24 @@
     <div class="col-lg-12">
       <div class="row">
         <div class="col-lg-6">
-          <ul>
-            <li></li>
+          <ul class="list-group">
+            <% @categories.each do |category| %>
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <i class="fa fa-circle" style="color:<%= category[:color] %>;"></i>
+                    <span><%= category[:category] %></span>
+                  </div>
+                  <div class="col-lg-4 text-right">
+                    <%= number_to_currency(category[:value], unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
+                  </div>
+                </div>
+              </li>
+            <% end %>
           </ul>
         </div>
         <div class="col-lg-6 text-right">
-          <canvas id="topCategoriesChart" width="360" height="360"></canvas>
+          <canvas id="topCategoriesChart"></canvas>
         </div>
       </div>
     </div>
