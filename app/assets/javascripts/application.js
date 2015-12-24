@@ -19,7 +19,7 @@
 //= require bootstrap-datetimepicker
 //= require pickers
 //= require bootstrap-colorpicker
-//= require chart
+//= require chartjs/Chart
 //= require select2
 //= require select2_locale_pt-BR
 
@@ -32,3 +32,5 @@
 //= require account
 //= require dashboard
 //= require entry
+
+//= require chart/data_requester
