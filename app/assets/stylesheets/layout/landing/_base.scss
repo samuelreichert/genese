@@ -17,15 +17,20 @@ header {
 }
 
 #about,
-#resources,
 #contact_form,
+#forgotpassword,
+#help-center,
 #login,
 #register,
-#updatepassword,
-#forgotpassword {
+#resources,
+#updatepassword {
   padding-bottom: 98px;
 }
 
 .email-input {
   min-width: 320px!important;
+}
+
+.brand-image {
+  margin-top: -8px;
 }
