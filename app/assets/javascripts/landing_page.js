@@ -26,3 +26,5 @@
 
 // You may include any languages (optional)
 //= require moment/pt-br
+
+//= require home
