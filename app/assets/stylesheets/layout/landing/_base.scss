@@ -12,20 +12,26 @@ header {
   }
 }
 
+#about,
 #advantages {
   background-color: white;
 }
 
 #about,
-#resources,
 #contact_form,
+#forgotpassword,
+#help-center,
 #login,
 #register,
-#updatepassword,
-#forgotpassword {
-  padding-bottom: 98px;
+#resources,
+#updatepassword {
+  padding-bottom: 32px;
 }
 
 .email-input {
   min-width: 320px!important;
+}
+
+.brand-image {
+  margin-top: -8px;
 }

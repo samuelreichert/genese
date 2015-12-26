@@ -1,4 +1,40 @@
-<p id="notice"><%= notice %></p>
+<section>
+  <section id="title">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1 class="section-heading">Central de Ajuda</h1>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<%= link_to 'Edit', edit_tutorial_path(@tutorial) %> |
-<%= link_to 'Back', tutorials_path %>
+  <section id="help-center">
+    <div class="container" id="resources">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                  <h3>
+                    <%= @tutorial.title %> <br>
+                    <small><%= I18n.l(@tutorial.created_at.to_date) %></small>
+                  </h3>
+
+                  <p class="lead">
+                    <%= @tutorial.description %>
+                  </p>
+                  <%= link_to :back, class: "btn btn-default" do %>
+                    <span class="fa fa-chevron-left"></span>
+                    Voltar
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

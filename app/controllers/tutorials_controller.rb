@@ -7,6 +7,7 @@ class TutorialsController < ApplicationController
   # GET /tutorials.json
   def index
     @tutorials = Tutorial.all
+    @tutorial_categories = TutorialCategory.all
   end
 
   # GET /tutorials/1
