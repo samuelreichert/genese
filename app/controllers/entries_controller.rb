@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :json
 
   # GET /entries
   # GET /entries.json
@@ -7,9 +8,10 @@ class EntriesController < ApplicationController
     @current_date = (params[:current_date] || Date.today).to_date
     @current_account = current_account
     @entries = current_entries
+    @categories = categories_ordered
 
     mount_totalizers
-    mount_date_links
+    mount_date_links(@current_date)
   end
 
   # GET /entries/1
@@ -97,9 +99,10 @@ class EntriesController < ApplicationController
     @totalizer_difference = sum_incomes - sum_expenses
   end
 
-  def mount_date_links
-    last_month = @current_date - 1.month
-    next_month = @current_date + 1.month
+  def mount_date_links date
+    last_month = date - 1.month
+    next_month = date + 1.month
+
     @last_month_path = entries_path(current_date: last_month)
     @next_month_path = entries_path(current_date: next_month)
   end

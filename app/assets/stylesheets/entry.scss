@@ -8,24 +8,8 @@
   .btn-margin-right {
     margin-right: 8px;
   }
-
-  .month-selector {
-    margin-top: 16px;
-
-    a {
-      color: #444;
-      text-decoration: none;
-
-      &:active,
-      &:hover,
-      &:focus,
-      &:visited {
-        text-decoration: none;
-      }
-    }
-  }
 }
 
 .entry-table > tbody > tr:hover {
-  background-color: #EFFFEF;
+  background-color: $list-hover-color;
 }
