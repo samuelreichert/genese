@@ -10,6 +10,9 @@
 
         <%= render 'categories' %>
         <%= render 'form' %>
+        <% if @current_account.owner == current_user.id %>
+          <%= render 'delete_account' %>
+        <% end %>
       </div>
     </div>
   </div>

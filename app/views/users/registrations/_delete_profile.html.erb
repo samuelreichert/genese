@@ -2,10 +2,12 @@
   <div class="col-lg-8 col-lg-offset-2 text-center">
     <div class="well">
       <h4>Deletar meu perfil</h4>
-      <%= link_to registration_path(resource_name), data: { confirm: "Você tem certeza que quer deletar seu perfil?" }, method: :delete, class: 'btn btn-danger' do %>
-        <span class="fa fa-trash"></span>
+      <%= link_to "#", class: "btn btn-danger", data: {toggle: "modal", target: "#profile_modal"} do %>
+        <i class="fa fa-trash"></i>
         Deletar Perfil
       <% end %>
     </div>
   </div>
 </div>
+
+<%= render 'delete_profile_modal' %>

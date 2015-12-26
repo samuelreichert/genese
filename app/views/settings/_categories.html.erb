@@ -11,15 +11,15 @@
         <li class="list-group-item">
           <div class="row">
             <div class="col-lg-8">
-              <span class="fa fa-lg fa-circle" style="color:<%= category.color %>;"></span>
+              <i class="fa fa-lg fa-circle" style="color:<%= category.color %>;"></i>
               <%= category.name %>
             </div>
             <div class="col-lg-4 text-right">
               <%= link_to edit_category_path(category), class: 'link-icon' do %>
-                <span class="fa fa-lg fa-pencil">
+                <i class="fa fa-lg fa-pencil"></i>
               <% end %>
               <%= link_to category, method: :delete, data: { confirm: 'Deseja realmente deletar esta categoria?' }, style: 'margin-left: 8px;', class: 'link-icon' do %>
-                <span class="fa fa-lg fa-trash"></span>
+                <i class="fa fa-lg fa-trash"></i>
               <% end %>
             </div>
           </div>

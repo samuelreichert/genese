@@ -16,6 +16,9 @@ en:
         password_confirmation: 'Confirm your new password'
         new_password: 'New password'
       account:
+        name: 'Account Name'
+        public: 'Is it an public account?'
+        users: 'Shared account users'
         currency_type: 'Currency Type'
         entries_order: 'Entries Order'
         reminder_days_before: 'How much days before?'

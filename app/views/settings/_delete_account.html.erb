@@ -1,0 +1,13 @@
+<div class="row delete-account">
+  <div class="col-lg-8 col-lg-offset-2 text-center">
+    <div class="well">
+      <h4>Deletar esta conta</h4>
+      <%= link_to "#", class: "btn btn-danger", data: {toggle: "modal", target: "#account_modal"} do %>
+        <i class="fa fa-trash"></i>
+        Deletar Conta
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render 'delete_account_modal' %>
