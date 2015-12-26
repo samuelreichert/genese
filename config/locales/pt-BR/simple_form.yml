@@ -23,6 +23,9 @@ pt-BR:
         password_confirmation: 'Confirme sua nova senha'
         new_password: 'Nova senha'
       account:
+        name: 'Nome da conta'
+        public: 'É uma conta pública?'
+        users: 'Usuários da conta compartilhada'
         currency_type: 'Tipo de moeda'
         entries_order: 'Ordem dos Lançamentos'
         reminder_days_before: 'Quantos dias antes?'
