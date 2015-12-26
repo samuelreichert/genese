@@ -12,19 +12,8 @@
           <div class="col-lg-8 col-lg-offset-2">
             <ul class="list-group">
               <% @accounts.each do |account| %>
-                <li class="list-group-item">
-                  <div class="row">
-                    <div class="col-lg-8">
-                      <%= link_to account.name, "#" %>
-                    </div>
-                    <div class="col-lg-4 text-right">
-                      <% if account.owner == current_user.id %>
-                        <%= link_to account, method: :delete, data: { confirm: 'Deseja realmente deletar esta conta?' }, style: 'margin-left: 8px;', class: 'link-icon' do %>
-                          <span class="fa fa-lg fa-trash"></span>
-                        <% end %>
-                      <% end %>
-                    </div>
-                  </div>
+                <li class="list-group-item js-account account-item" data-account-id="<%= account.id %>">
+                  <%= account.name %>
                 </li>
               <% end %>
             </ul>
