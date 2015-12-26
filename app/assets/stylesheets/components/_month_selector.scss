@@ -1,0 +1,15 @@
+.month-selector {
+  margin-top: 16px;
+
+  a {
+    color: #444;
+    text-decoration: none;
+
+    &:active,
+    &:hover,
+    &:focus,
+    &:visited {
+      text-decoration: none;
+    }
+  }
+}

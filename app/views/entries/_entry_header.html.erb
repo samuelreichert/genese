@@ -18,13 +18,13 @@
   <div class="col-lg-4 text-center">
     <h5 class="month-selector">
       <%= link_to @last_month_path do %>
-        <span class="fa fa-chevron-left"></span>
+        <i class="fa fa-chevron-left"></i>
       <% end %>
 
       <span><%= formatted_current_date @current_date %></span>
 
       <%= link_to @next_month_path do %>
-        <span class="fa fa-chevron-right"></span>
+        <i class="fa fa-chevron-right"></i>
       <% end %>
     </h5>
   </div>

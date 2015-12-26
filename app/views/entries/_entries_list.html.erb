@@ -1,21 +1,33 @@
 <div class="row">
-  <% if @entries.empty? %>
-    <div class="col-lg-10 col-lg-offset-1 text-center not-found-box">
-      <i class='fa fa-exclamation-circle fa-4x muted'></i>
-      <h5 class='muted'>Nenhum lançamento encontrado neste período</h5>
-    </div>
-  <% else %>
-    <div class="col-lg-12">
-      <div class="row">
-        <div class="col-lg-6">
-          <!-- TODO: Montar aqui a busca por categorias -->
-        </div>
-        <div class="col-lg-6">
-          <!-- TODO: Montar aqui a busca por descrição -->
+  <div class="col-lg-12" style="margin-bottom: 24px;">
+    <div class="row">
+      <div class="col-lg-6 text-left">
+        <select name="categories" id="categories" class="select form-control">
+          <option value="">Selecione uma categoria...</option>
+          <%= @categories.each do |category| %>
+            <option value="<%= category.id %>"><%= category.name %></option>
+          <% end %>
+        </select>
+       </div>
+      <div class="col-lg-6">
+        <div class="input-group">
+          <input type="text" name="description" id="description" class="form-control" placeholder="Buscar por descrição...">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
         </div>
       </div>
     </div>
-    <div class='col-lg-12'>
+  </div>
+  <div class='col-lg-12'>
+    <% if @entries.empty? %>
+      <div class="col-lg-10 col-lg-offset-1 text-center not-found-box">
+        <i class='fa fa-exclamation-circle fa-4x muted'></i>
+        <h5 class='muted'>Nenhum lançamento encontrado neste período</h5>
+      </div>
+    <% else %>
       <table class='table table-hover entry-table'>
         <tbody>
           <% @entries.each do |entry| %>
@@ -45,7 +57,6 @@
                 <%= link_to entry, method: :delete, data: { confirm: 'Deseja mesmo deletar este lançamento?' }, class: 'link-icon' do %>
                   <i class='fa fa-lg fa-trash'></i>
                 <% end %>
-                <!-- TODO: flag para marcar como pago (usar icons) -->
                 <%= link_to '#', class: 'link-icon', title: (entry.paid ? 'Marcar como não pago' : 'Marcar como pago'), data: {toggle: 'tooltip', placement: 'bottom'} do %>
                   <i class='fa fa-lg fa-check' style="color:<%= if entry.paid then '#2ecc71' end %>;"></i>
                 <% end %>
@@ -54,29 +65,29 @@
           <% end %>
         </tbody>
       </table>
-    </div>
-    <div class="col-lg-12">
-      <div class="row">
-        <div class="col-lg-3"></div>
-        <div class="col-lg-3 text-right">
-          <span class="text-muted">Receita total</span>
-          <h6 class="text-success">
-            <%= number_to_currency(@totalizer_incomes, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
-          </h6>
-        </div>
-        <div class="col-lg-3 text-right">
-          <span class="text-muted">Despesa total</span>
-          <h6 class="text-danger">
-            <%= number_to_currency(@totalizer_expenses, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
-          </h6>
-        </div>
-        <div class="col-lg-3 text-right">
-          <span class="text-muted">Previsto no fim do mês</span>
-          <h6 class="text-primary">
-            <%= number_to_currency(@totalizer_difference, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
-          </h6>
-        </div>
+    <% end %>
+  </div>
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-3 text-right">
+        <span class="text-muted">Receita total</span>
+        <h6 class="text-success">
+          <%= number_to_currency(@totalizer_incomes, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
+        </h6>
+      </div>
+      <div class="col-lg-3 text-right">
+        <span class="text-muted">Despesa total</span>
+        <h6 class="text-danger">
+          <%= number_to_currency(@totalizer_expenses, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
+        </h6>
+      </div>
+      <div class="col-lg-3 text-right">
+        <span class="text-muted">Previsto no fim do mês</span>
+        <h6 class="text-primary">
+          <%= number_to_currency(@totalizer_difference, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
+        </h6>
       </div>
     </div>
-  <% end %>
+  </div>
 </div>
