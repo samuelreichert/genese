@@ -1,0 +1,25 @@
+<div class="modal fade" id="profile_modal" tabindex="-1" role="dialog" aria-labelledby="modalProfileLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title text-danger" id="modalProfileLabel">Deletar Perfil</h4>
+      </div>
+      <div class="modal-body">
+        <p class="lead">
+          Deseja realmente deletar seu perfil?
+        </p>
+        <p class="lead">
+          Lembre-se, ao deletar seu perfil, estará deletando também <strong>TODAS</strong> as contas que você criou, e os lançamentos e categorias pertencentes às contas
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          <i class="fa fa-chevron-left"></i>
+          Fechar
+        </button>
+        <%= link_to 'Deletar Perfil', registration_path(resource_name), method: :delete, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>

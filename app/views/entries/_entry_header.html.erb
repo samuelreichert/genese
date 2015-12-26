@@ -1,12 +1,12 @@
 <div class="row entry-header">
   <div class="col-lg-4 text-center">
     <%= link_to new_entry_path(entries_type: Entry.entries_types[:expense]), class: 'btn btn-danger btn-new-entry btn-margin-right' do %>
-      <span class="fa fa-plus"></span>
+      <i class="fa fa-plus"></i>
       Nova Despesa
     <% end %>
 
     <%= link_to new_entry_path(entries_type: Entry.entries_types[:income]), class: 'btn btn-success btn-new-entry' do %>
-      <span class="fa fa-plus"></span>
+      <i class="fa fa-plus"></i>
       Nova Receita
     <% end %>
   </div>

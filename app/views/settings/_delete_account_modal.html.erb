@@ -1,0 +1,25 @@
+<div class="modal fade" id="account_modal" tabindex="-1" role="dialog" aria-labelledby="modalAccountLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title text-danger" id="modalAccountLabel">Deletar Conta</h4>
+      </div>
+      <div class="modal-body">
+        <p class="lead">
+          Deseja realmente deletar esta conta?
+        </p>
+        <p class="lead">
+          Lembre-se, ao deletar esta conta, estará deletando também <strong>TODAS</strong> as categorias e lançamentos
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          <i class="fa fa-chevron-left"></i>
+          Fechar
+        </button>
+        <%= link_to 'Deletar Conta', @current_account, method: :delete, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>
