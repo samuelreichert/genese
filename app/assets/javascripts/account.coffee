@@ -2,6 +2,9 @@ $ ->
   $('.reminder_active').on 'change', ->
     $('.reminder_days_before').prop "disabled", !@.checked
 
+  $('.public').on 'change', ->
+    $('.select_users').prop "disabled", !@.checked
+
   select2_options =
     theme: 'bootstrap'
     placeholder: 'Selecione os usuários'
