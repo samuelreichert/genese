@@ -1,39 +1,46 @@
 <section>
-  <div class="container" id="login">
-    <%= render 'shared/flash' %>
-
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2>Login</h2>
-        <hr>
+  <section id="title">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1 class="section-heading">Login</h1>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="col-lg-8 col-lg-offset-2">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <br><br>
-              <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                  <%= f.input :email, required: false, autofocus: true %>
-                  <%= f.input :password, required: false %>
-                  <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-                </div>
+  <section id="login">
+    <div class="container" id="resources">
+      <%= render 'shared/flash' %>
 
-                <div class="col-lg-8 col-lg-offset-2">
-                  <%= f.button :submit, "Login", class: 'btn btn-success btn-block' %>
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <br><br>
+                <div class="row">
+                  <div class="col-lg-8 col-lg-offset-2">
+                    <%= f.input :email, required: false, autofocus: true %>
+                    <%= f.input :password, required: false %>
+                    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                  </div>
+
+                  <div class="col-lg-8 col-lg-offset-2">
+                    <%= f.button :submit, "Login", class: 'btn btn-success btn-block' %>
+                  </div>
                 </div>
-              </div>
-              <br><br>
-              <div class="row">
-                <div class="col-lg-12 text-center">
-                  <%= render "users/shared/links" %>
+                <br><br>
+                <div class="row">
+                  <div class="col-lg-12 text-center">
+                    <%= render "users/shared/links" %>
+                  </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </section>
