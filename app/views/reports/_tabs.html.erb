@@ -1,0 +1,51 @@
+<% content_for :included_javascript do %>
+  <% javascript_tag do %>
+    $(document).ready((function(_this) {
+      return function() {
+        var reports = new _this.Reports(
+          $('#expensesChart'),
+          $('#incomesChart'),
+          $('#versusChart'),
+          <%= @expenses_categories.to_json.html_safe %>,
+          <%= @incomes_categories.to_json.html_safe %>,
+          <%= @total_entries.to_json.html_safe %>
+        );
+        reports.initCharts();
+      };
+    })(this));
+  <% end %>
+<% end %>
+
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <%= link_to 'Categorias', '#categories', 'data-toggle': 'tab', 'aria-expanded': 'true', id: 'categories_link' %>
+      </li>
+      <li class="">
+        <%= link_to 'Despesas x Receitas', '#expenseincomes', 'data-toggle': 'tab', 'aria-expanded': 'true', id: 'expinc_link' %>
+      </li>
+    </ul>
+    <div id="reportsTab" class="tab-content">
+      <div class="tab-pane fade active in" id="categories">
+        <div class="row">
+          <div class="col-lg-6 text-center">
+            <h4>Receitas</h4>
+            <canvas id="incomesChart"></canvas>
+          </div>
+          <div class="col-lg-6 text-center">
+            <h4>Despesas</h4>
+            <canvas id="expensesChart"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="expenseincomes">
+        <div class="row">
+          <div class="col-lg-12">
+            <canvas id="versusChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
