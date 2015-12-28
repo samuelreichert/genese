@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     dashboard_page_path
   end
 
+  def format_value value, unit
+    view_context.number_to_currency(value, unit: unit, separator: ",", delimiter: ".")
+  end
+
   private
   def current_account
     current_user.accounts.find(current_user.main_account)

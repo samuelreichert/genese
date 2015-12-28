@@ -10,7 +10,7 @@ class DashboardController < ApplicationController
   end
 
   def top_categories_entries account, entries
-    @categories = top_categories_totalizer(account, entries)
+    @categories = top_categories_totalizer(account, entries).first(5)
   end
 
   private
@@ -64,9 +64,5 @@ class DashboardController < ApplicationController
     end
 
     categories
-  end
-
-  def format_value value, unit
-    view_context.number_to_currency(value, unit: unit, separator: ",", delimiter: ".")
   end
 end
