@@ -1,5 +1,10 @@
-$navbar-border-radius: 0;
-$navbar-inverse-bg: #2ECC71;
-$navbar-inverse-link-color: lighten($navbar-inverse-bg, 40%);
+// colors
+$dark-gray: #696969;
+$white-green: #EFFFEF;
+$genese-green: #2ECC71;
 
-$list-hover-color: #EFFFEF;
+// variables
+$navbar-border-radius: 0;
+$navbar-inverse-bg: $genese-green;
+$navbar-inverse-link-color: lighten($genese-green, 40%);
+$list-hover-color: $white-green;
