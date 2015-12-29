@@ -6,14 +6,14 @@
   <% if @entries.empty? %>
     <%= render 'no_data' %>
   <% else %>
-    <div class="col-lg-6">
+    <div class="col-lg-6 col-md-6">
       <span class="text-muted">Despesa Total</span>
       <h4 class="text-danger expenditure-title">
         <%= number_to_currency(@totalizer_expenses, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
       </h4>
     </div>
 
-    <div class="col-lg-6">
+    <div class="col-lg-6 col-md-6">
       <span class="text-muted">Receita Total</span>
       <h4 class="text-success balance-title">
         <%= number_to_currency(@totalizer_incomes, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>

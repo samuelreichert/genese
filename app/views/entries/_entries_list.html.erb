@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-12" style="margin-bottom: 24px;">
     <div class="row">
-      <div class="col-lg-6 text-left">
+      <div class="col-lg-6 col-md-6 text-left">
         <select name="categories" id="categories" class="select form-control">
           <option value="">Selecione uma categoria...</option>
           <%= @categories.each do |category| %>
@@ -9,7 +9,7 @@
           <% end %>
         </select>
        </div>
-      <div class="col-lg-6">
+      <div class="col-lg-6 col-md-6">
         <div class="input-group">
           <input type="text" name="description" id="description" class="form-control" placeholder="Buscar por descrição...">
           <span class="input-group-btn">
@@ -32,25 +32,25 @@
         <tbody>
           <% @entries.each do |entry| %>
             <tr>
-              <td class="col-lg-1">
+              <td class="col-lg-1 col-md-1">
                 <% if entry.entries_type == Entry.entries_types[:income] %>
                   <i class='fa fa-plus-square' style='color: #2ecc71;'></i>
                 <% else %>
                   <i class='fa fa-minus-square' style='color: #e74c3c;'></i>
                 <% end %>
               </td>
-              <td class="col-lg-1"><%= number_to_currency(entry.value, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %></td>
-              <td class="col-lg-1">
+              <td class="col-lg-5 col-md-5"><%= link_to entry.description, entry %></td>
+              <td class="col-lg-2 col-md-2"><%= number_to_currency(entry.value, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %></td>
+              <td class="col-lg-1 col-md-1">
                 <%= I18n.l(entry.date) %>
               </td>
-              <td class="col-lg-5"><%= link_to entry.description, entry %></td>
-              <td class="col-lg-2">
+              <td class="col-lg-2 col-md-2">
                 <% if entry.category %>
                   <i class='fa fa-circle' style="color:<%= entry.category.color %>;"></i>
                   <%= entry.category.name %>
                 <% end %>
               </td>
-              <td class="col-lg-2 text-right">
+              <td class="col-lg-1 col-md-1 text-right">
                 <%= link_to edit_entry_path(entry), class: 'link-icon' do %>
                   <i class='fa fa-lg fa-pencil'></i>
                 <% end %>
@@ -69,20 +69,20 @@
   </div>
   <div class="col-lg-12">
     <div class="row">
-      <div class="col-lg-3"></div>
-      <div class="col-lg-3 text-right">
+      <div class="col-lg-3 col-md-3"></div>
+      <div class="col-lg-3 col-md-3 text-right">
         <span class="text-muted">Receita total</span>
         <h6 class="text-success">
           <%= number_to_currency(@totalizer_incomes, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
         </h6>
       </div>
-      <div class="col-lg-3 text-right">
+      <div class="col-lg-3 col-md-3 text-right">
         <span class="text-muted">Despesa total</span>
         <h6 class="text-danger">
           <%= number_to_currency(@totalizer_expenses, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
         </h6>
       </div>
-      <div class="col-lg-3 text-right">
+      <div class="col-lg-3 col-md-3 text-right">
         <span class="text-muted">Previsto no fim do mês</span>
         <h6 class="text-primary">
           <%= number_to_currency(@totalizer_difference, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
