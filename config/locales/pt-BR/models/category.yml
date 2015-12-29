@@ -7,3 +7,4 @@ pt-BR:
     messages:
       category_created: 'Categoria foi criada com sucesso'
       category_updated: 'Categoria foi alterada com sucesso'
+      category_destroyed: 'Categoria removida com sucesso'

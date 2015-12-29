@@ -7,3 +7,4 @@ en:
     messages:
       category_created: 'Category was successfully created'
       category_updated: 'Category was successfully updated'
+      category_destroyed: 'Category removed successfully'
