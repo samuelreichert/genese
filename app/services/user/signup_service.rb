@@ -6,7 +6,12 @@ class User::SignupService
 
   def create_account
     account_name = "Conta Privada - #{@user.name}"
-    account = @user.accounts.create(name: account_name, owner: @user.id)
+
+    account = @user.accounts.create!(
+      name: account_name,
+      owner: @user.id
+    )
+
     @user.update(main_account: account.id)
 
     send_welcome_email
