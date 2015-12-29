@@ -12,8 +12,20 @@
           <div class="col-lg-8 col-lg-offset-2">
             <ul class="list-group">
               <% @accounts.each do |account| %>
-                <li class="list-group-item js-account account-item" data-account-id="<%= account.id %>">
-                  <%= account.name %>
+                <li class="list-group-item account__item">
+                  <%= link_to main_account_path(account_id: account.id), method: :post, class: 'account__link' do %>
+                    <%= account.name %>
+
+                    <small class="account__badge">
+                      <% if account.public %>
+                        <i class="fa fa-unlock-alt"></i>
+                        Pública
+                      <% else %>
+                        <i class="fa fa-lock"></i>
+                        Privada
+                      <% end %>
+                    </small>
+                  <% end %>
                 </li>
               <% end %>
             </ul>
