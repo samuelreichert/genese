@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get "/about", to: "home#about", as: "about_page"
   get "/dashboard", to: "dashboard#index", as: "dashboard_page"
   post "/main_account", to: "accounts#main_account", as: "main_account"
+  post "/entry_paid", to: "entries#entry_paid", as: "entry_paid"
   get "/index", to: "home#index", as: "index_page"
   get "/resources", to: "home#resources", as: "resources_page"
 

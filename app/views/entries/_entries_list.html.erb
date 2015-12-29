@@ -57,7 +57,7 @@
                 <%= link_to entry, method: :delete, data: { confirm: 'Deseja mesmo deletar este lançamento?' }, class: 'link-icon' do %>
                   <i class='fa fa-lg fa-trash'></i>
                 <% end %>
-                <%= link_to '#', class: 'link-icon', title: (entry.paid ? 'Marcar como não pago' : 'Marcar como pago'), data: {toggle: 'tooltip', placement: 'bottom'} do %>
+                <%= link_to entry_paid_path(entry_id: entry.id, paid: !entry.paid), method: :post, class: 'link-icon', title: (entry.paid ? 'Marcar como não pago' : 'Marcar como pago'), data: {toggle: 'tooltip', placement: 'bottom'} do %>
                   <i class='fa fa-lg fa-check' style="color:<%= if entry.paid then '#2ecc71' end %>;"></i>
                 <% end %>
               </td>
