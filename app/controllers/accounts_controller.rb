@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
+  before_action :set_account, only: [:destroy]
   respond_to :html, :json
 
   def index
@@ -11,10 +12,15 @@ class AccountsController < ApplicationController
   end
 
   def create
-    @account = current_user.accounts.new(account_params)
+    if account_params[:public] == '1'
+      account_saved = Account::SaveAccountService.new(current_user, account_params, params[:account][:users]).save
+    else
+      account_saved = current_user.accounts.create!(account_params)
+    end
+    User::CategoryService.new(account_saved).create_categories
 
     respond_to do |format|
-      if @account.save
+      if account_saved
         format.html { redirect_to accounts_path, notice: I18n.t('activerecord.messages.account_created') }
         format.json { render :index, status: :created, location: @account }
       else
@@ -27,20 +33,42 @@ class AccountsController < ApplicationController
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
-    @account.destroy
+    flash = Account::DestroyAccountService.new(current_user, @account).destroy
     respond_to do |format|
-      format.html { redirect_to accounts_path, notice: I18n.t('activerecord.messages.account_destroyed') }
+      format.html { redirect_to accounts_path, flash }
       format.json { head :no_content }
     end
   end
 
+  def main_account
+    account_id = params[:account_id]
+
+    respond_to do |format|
+      if current_user.update(main_account: account_id.to_i)
+        format.html { redirect_to dashboard_page_path, notice: I18n.t('activerecord.messages.main_account_updated') }
+        format.json { render json: {url: dashboard_page_path} }
+      else
+        format.html { render :index }
+        format.json { render json: current_user.errors }
+      end
+    end
+  end
+
   private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_account
+    @account = Account.find(params[:id])
+  end
+
   def account_params
     params.require(:account).permit(
-      :entries_order,
+      :name,
+      :owner,
+      :public,
       :currency_type,
-      :reminder_days_before,
-      :reminder_active
+      :entries_order,
+      :reminder_active,
+      :reminder_days_before
     )
   end
 end

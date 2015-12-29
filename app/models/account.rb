@@ -6,5 +6,5 @@ class Account < ActiveRecord::Base
   enum currency_type: { dollar: "$", euro: "€", real: "R$" }
   enum entries_order: { crescent: true, decrescent: false }
 
-  validates :currency_type, :public, :name, :owner, presence: true
+  validates :currency_type, :name, :owner, presence: true
 end
