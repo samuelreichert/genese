@@ -7,30 +7,30 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-6 col-md-6">
       <%= f.input :description, required: true %>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-6 col-md-6">
       <%= f.input :value, required: true %>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-6 col-md-6">
       <%= f.input :date, as: :date_picker, required: true %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-lg-4">
+    <div class="col-lg-4 col-md-4">
       <%= f.input :repeat, input_html: {class: 'repeat'} %>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-4 col-md-4">
       <%= f.input :repeat_times, collection: 2..180, include_blank: false, class: "repeat_times", disabled: (!@entry.repeat) %>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-4 col-md-4">
       <%= f.input :repeat_frequency, include_blank: false, disabled: (!@entry.repeat) %>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-6 col-md-6">
       <%= f.input :category_id, collection: @categories, include_blank: false, required: true %>
     </div>
   </div>
@@ -44,13 +44,13 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-6 col-md-6">
       <%= link_to :back, class: 'btn btn-default' do %>
         <i class="fa fa-chevron-left"></i>
         Voltar
       <% end %>
     </div>
-    <div class="col-lg-6 text-right">
+    <div class="col-lg-6 col-md-6 text-right">
       <%= f.button :submit, class: 'btn-success' %>
     </div>
   </div>

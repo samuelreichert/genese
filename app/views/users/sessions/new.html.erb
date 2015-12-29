@@ -14,19 +14,19 @@
       <%= render 'shared/flash' %>
 
       <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
           <div class="panel panel-default">
             <div class="panel-body">
               <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                 <br><br>
                 <div class="row">
-                  <div class="col-lg-8 col-lg-offset-2">
+                  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
                     <%= f.input :email, required: false, autofocus: true %>
                     <%= f.input :password, required: false %>
                     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
                   </div>
 
-                  <div class="col-lg-8 col-lg-offset-2">
+                  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
                     <%= f.button :submit, "Login", class: 'btn btn-success btn-block' %>
                   </div>
                 </div>
