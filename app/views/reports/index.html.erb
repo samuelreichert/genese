@@ -4,8 +4,17 @@
       <div class="panel-body">
         <%= render 'reports_header' %>
 
-        <%= render 'tabs' %>
-        <%= render 'list_entries_details' %>
+        <% if @expenses.empty? and @incomes.empty? %>
+          <div class="col-lg-10 col-lg-offset-1 text-center not-found-box">
+            <i class='fa fa-exclamation-circle fa-4x muted'></i>
+            <h5 class='muted'>
+              Nenhum lançamento encontrado para criar os relatórios
+            </h5>
+          </div>
+        <% else %>
+          <%= render 'tabs' %>
+          <%= render 'list_entries_details' %>
+        <% end %>
       </div>
     </div>
   </div>
