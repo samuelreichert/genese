@@ -75,6 +75,22 @@ class EntriesController < ApplicationController
     end
   end
 
+  def entry_paid
+    paid = params[:paid]
+    entry_id = params[:entry_id]
+    entry = Entry.find(entry_id)
+
+    respond_to do |format|
+      if entry.update(paid: paid)
+        format.html { redirect_to entries_path }
+        format.json { render json: {url: entries_path} }
+      else
+        format.html { render :index }
+        format.json { render json: entry.errors }
+      end
+    end
+  end
+
   private
   def set_entry
     @entry = Entry.find(params[:id])

@@ -3,13 +3,11 @@ class @PieChart
     @data = @formatValue(data)
 
     @options =
-      egmentShowStroke : true
-      segmentStrokeColor : "#fff"
-      segmentStrokeWidth : 1
-      animationSteps : 100
-      animationEasing : "easeOutBounce"
-      animateRotate : true
-      animateScale : false
+      segmentShowStroke: false
+      animationSteps: 100
+      animationEasing: "easeOutBounce"
+      animateRotate: true
+      animateScale: false
       maintainAspectRatio: true
       tooltipTemplate: "<%if (label){%><%=label%><%}%>"
       showTooltips: true
