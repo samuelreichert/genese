@@ -100,9 +100,11 @@ class EntriesController < ApplicationController
     date = @current_date
     date_begin = date.beginning_of_month
     date_end = date.end_of_month
+    order = if @current_account.entries_order == 'crescent' then :asc else :desc end
+
     @current_account.entries
       .where(date: date_begin..date_end)
-      .order(date: :asc, description: :asc)
+      .order(date: order, description: order)
   end
 
   def mount_totalizers
