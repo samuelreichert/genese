@@ -23,14 +23,14 @@
 //= require select2
 //= require select2_locale_pt-BR
 
-// Chart global configs
-// require chart_configs
-
 // You may include any languages (optional)
 //= require moment/pt-br
 
 //= require account
 //= require dashboard
 //= require entry
+//= require reports
 
+// Chart related files
+//= require chart/bar_chart
 //= require chart/pie_chart
