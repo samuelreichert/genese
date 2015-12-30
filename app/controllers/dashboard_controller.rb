@@ -18,7 +18,7 @@ class DashboardController < ApplicationController
     begin_date = Date.today.beginning_of_month
     end_date = Date.today.end_of_month
 
-    account.entries.where(date: begin_date...end_date)
+    account.entries.where(date: begin_date..end_date)
   end
 
   def mount_entries_lists entries
