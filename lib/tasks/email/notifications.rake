@@ -11,7 +11,7 @@ namespace :email do
         user_entries = account.entries.where(paid: false, date: date_to_compare, entries_type: :expense)
 
         user_entries.each do |entry|
-          Mailers::NotificationMessage.perform(user, account, entry)
+          Mailers::NotificationMessage.perform(user.id, account.id, entry.id)
         end
       end
     end

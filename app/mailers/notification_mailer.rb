@@ -4,7 +4,12 @@ class NotificationMailer < BaseMailer
     @account = account
     @entry = entry
 
-    @value = number_to_currency(@entry.value, unit: @account.read_attribute('currency_type'), separator: ",", delimiter: ".")
+    @value = helper.number_to_currency(
+      @entry.value,
+      unit: @account.read_attribute('currency_type'),
+      separator: ",",
+      delimiter: "."
+    )
     @date = I18n.l(@entry.date)
 
     mandrill_mail(
@@ -22,5 +27,10 @@ class NotificationMailer < BaseMailer
         'COLOR' => @entry.category.color
       }
     )
+  end
+
+  private
+  def helper
+    ActiveSupport::NumberHelper
   end
 end
