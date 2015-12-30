@@ -4,3 +4,7 @@ $ ->
     $('#entry_repeat_frequency').prop "disabled", !@.checked
 
   $('[data-toggle="tooltip"]').tooltip()
+
+  $("#category").on 'change', (e)->
+    $form = $(e.target).closest('form')
+    $form.submit()
