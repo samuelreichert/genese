@@ -42,7 +42,7 @@ class ReportsController < ApplicationController
     @total_entries = {
       labels: ["Receitas","Despesas"],
       datasets: [{
-        fillColor: ["#2ecc71","#e74c3c"],
+        fillColor: "#3498db",
         data: [@totalizer_incomes, @totalizer_expenses]
       }]
     }
