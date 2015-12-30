@@ -54,6 +54,21 @@ class AccountsController < ApplicationController
     end
   end
 
+  def leave_account
+    account_id = params[:account_id]
+    account = Account.find(account_id)
+    unlinked_account = current_user.accounts.delete(account)
+
+    if current_user.main_account == unlinked_account.id
+      current_user.update(main_account: current_user.accounts.first.id)
+    end
+
+    respond_to do |format|
+      format.html { redirect_to accounts_path, notice: I18n.t('activerecord.messages.account_unlinked') }
+      format.json { render json: {url: accounts_path} }
+    end
+  end
+
   def main_account
     account_id = params[:account_id]
 
