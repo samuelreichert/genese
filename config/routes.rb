@@ -26,11 +26,11 @@ Rails.application.routes.draw do
   get "/index", to: "home#index", as: "index_page"
   get "/resources", to: "home#resources", as: "resources_page"
 
-  resources :accounts, only: [:index, :new, :create, :destroy]
+  resources :accounts, only: [:index, :new, :create, :update, :destroy]
   resources :categories, only: [:new, :edit, :create, :update, :destroy]
   resources :contact_forms, only: [:index, :show, :create]
   resources :entries
   resources :reports, only: [:index]
-  resources :settings, only: [:index, :update]
+  resources :settings, only: [:index]
   resources :tutorials, only: [:index, :show]
 end

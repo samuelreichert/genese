@@ -30,6 +30,20 @@ class AccountsController < ApplicationController
     end
   end
 
+  def update
+    @current_account = current_account
+
+    respond_to do |format|
+      if @current_account.update(update_params)
+        format.html { redirect_to settings_path, notice: I18n.t('activerecord.messages.account_updated') }
+        format.json { render settings_path, status: :ok, location: @current_account }
+      else
+        format.html { render settings_path }
+        format.json { render json: @current_account.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
@@ -69,6 +83,15 @@ class AccountsController < ApplicationController
       :entries_order,
       :reminder_active,
       :reminder_days_before
+    )
+  end
+
+  def update_params
+    params.require(:account).permit(
+      :entries_order,
+      :currency_type,
+      :reminder_days_before,
+      :reminder_active
     )
   end
 end
