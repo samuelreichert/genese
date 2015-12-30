@@ -8,6 +8,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'active_skin'
 # DB
 gem 'pg'
+gem 'pg_search'
 # Auth
 gem 'devise'
 # Models
