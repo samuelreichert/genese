@@ -13,19 +13,23 @@
             <ul class="list-group">
               <% @accounts.each do |account| %>
                 <li class="list-group-item account__item">
-                  <%= link_to main_account_path(account_id: account.id), method: :post, class: 'account__link' do %>
-                    <%= account.name %>
+                  <%= link_to account.name, main_account_path(account_id: account.id), method: :post, class: 'account__link' %>
 
-                    <small class="account__badge">
-                      <% if account.public %>
-                        <i class="fa fa-unlock-alt"></i>
-                        Pública
-                      <% else %>
-                        <i class="fa fa-lock"></i>
-                        Privada
-                      <% end %>
-                    </small>
+                  <% if account.public && account.owner != current_user.id %>
+                    <%= link_to leave_account_path(account_id: account.id), method: :post, class: 'account__link account__icon', title: 'Desvincular conta', data: {toggle: 'tooltip', placement: 'bottom', confirm: 'Você tem certeza que quer se desvincular desta conta?'} do %>
+                      <i class="fa fa-sign-out"></i>
+                    <% end %>
                   <% end %>
+
+                  <small class="account__badge">
+                    <% if account.public %>
+                      <i class="fa fa-unlock-alt"></i>
+                      Pública
+                    <% else %>
+                      <i class="fa fa-lock"></i>
+                      Privada
+                    <% end %>
+                  </small>
                 </li>
               <% end %>
             </ul>
