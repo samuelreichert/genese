@@ -8,6 +8,7 @@ pt-BR:
       account_created: 'Conta criada com sucesso'
       account_updated: 'Conta atualizada com sucesso'
       account_destroyed: 'Conta removida com sucesso'
+      account_unlinked: 'Conta desvinculada com sucesso'
       main_account_updated: 'Conta principal alterada com sucesso'
       cannot_destroy_one_account: 'Você tem apenas uma conta privada, não é possível deletá-la. Crie outra conta privada se deseja excluir esta'
   enums:
