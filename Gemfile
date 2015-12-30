@@ -16,6 +16,7 @@ gem 'enum_help'
 gem 'kaminari'
 gem 'simple_form'
 gem 'sidekiq'
+gem 'sinatra', :require => nil
 gem 'foreman'
 gem 'mandrill_mailer'
 gem 'active_link_to'

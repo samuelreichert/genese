@@ -202,6 +202,8 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     rack (1.5.5)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.1.11)
@@ -278,6 +280,10 @@ GEM
     simple_form (3.2.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
+    sinatra (1.4.6)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
     slop (3.6.0)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -345,6 +351,7 @@ DEPENDENCIES
   select2-rails
   sidekiq
   simple_form
+  sinatra
   turbolinks
   uglifier
 
