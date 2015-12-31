@@ -46,6 +46,15 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
+    new_category_id = params[:modal_category]
+    account = current_account
+
+    entries = account.entries.where(category_id: @category.id)
+
+    if entries.any?
+      entries.update_all(category_id: new_category_id)
+    end
+
     @category.destroy
     respond_to do |format|
       format.html { redirect_to settings_path, notice: I18n.t('activerecord.messages.category_destroyed') }

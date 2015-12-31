@@ -18,12 +18,13 @@
               <%= link_to edit_category_path(category), class: 'link-icon' do %>
                 <i class="fa fa-lg fa-pencil"></i>
               <% end %>
-              <%= link_to category, method: :delete, data: { confirm: 'Deseja realmente deletar esta categoria?' }, style: 'margin-left: 8px;', class: 'link-icon' do %>
+              <%= link_to "#", data: {toggle: "modal", target: "#category_modal_#{category.id}"}, style: 'margin-left: 8px;', class: 'link-icon' do %>
                 <i class="fa fa-lg fa-trash"></i>
               <% end %>
             </div>
           </div>
         </li>
+        <%= render partial: 'delete_category_modal', object: category, as: 'category' %>
       <% end %>
     </ul>
 
