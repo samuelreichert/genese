@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
     dashboard_page_path
   end
 
-  def format_value value, unit
-    view_context.number_to_currency(value, unit: unit, separator: ",", delimiter: ".")
+  def format_value value, locale
+    view_context.number_to_currency(value, locale: locale)
   end
 
   private

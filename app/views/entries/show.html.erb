@@ -19,7 +19,7 @@
                     <dd><%= @entry.description %></dd>
 
                     <dt>Valor:</dt>
-                    <dd><%= number_to_currency(@entry.value, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %></dd>
+                    <dd><%= number_to_currency(@entry.value, locale: @current_account.read_attribute('currency_type')) %></dd>
 
                     <dt>Data:</dt>
                     <dd><%= I18n.l @entry.date %></dd>

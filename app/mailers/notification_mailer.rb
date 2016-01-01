@@ -6,9 +6,7 @@ class NotificationMailer < BaseMailer
 
     @value = helper.number_to_currency(
       @entry.value,
-      unit: @account.read_attribute('currency_type'),
-      separator: ",",
-      delimiter: "."
+      locale: @account.read_attribute('currency_type')
     )
     @date = I18n.l(@entry.date)
 

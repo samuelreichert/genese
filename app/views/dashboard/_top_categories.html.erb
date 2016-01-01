@@ -36,7 +36,7 @@
                     <span><%= category[:category] %></span>
                   </div>
                   <div class="col-lg-4 text-right">
-                    <%= number_to_currency(category[:value], unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
+                    <%= number_to_currency(category[:value], locale: @current_account.read_attribute('currency_type')) %>
                   </div>
                 </div>
               </li>
