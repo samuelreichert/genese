@@ -6,7 +6,7 @@ en:
         other: 'Accounts'
     messages:
       account_created: 'Account was successfully created'
-      account_updated: 'Account was successfully updated'
+      account_updated: 'Account settings were successfully updated'
       account_destroyed: 'Account removed successfully'
       account_unlinked: 'Account was successfully unlinked'
       main_account_updated: 'Main account updated successfully'
