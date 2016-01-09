@@ -19,7 +19,7 @@ pt-BR:
       confirmation_instructions:
         subject: "Confirmation instructions"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "Gênese - Instruções para alterar sua senha"
       unlock_instructions:
         subject: "Unlock instructions"
     omniauth_callbacks:
@@ -27,12 +27,12 @@ pt-BR:
       success: "Successfully authenticated from %{kind} account."
     passwords:
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
-      send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
+      send_instructions: "Você irá receber em instantes um email com instruções de como resetar sua senha."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
-      updated: "Your password has been changed successfully. You are now signed in."
-      updated_not_active: "Your password has been changed successfully."
+      updated: "Sua senha foi alterada com sucesso! Agora você já está logado"
+      updated_not_active: "Sua senha foi alterada com sucesso!"
     registrations:
-      destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
+      destroyed: "Tchau! Seu perfil foi removido, esperamos vê-lo novamente em breve!"
       signed_up: "Bem-vindo! Você se cadastrou com sucesso!"
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
       signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
