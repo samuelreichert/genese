@@ -12,6 +12,18 @@ class EntriesController < ApplicationController
     @current_date = (params[:current_date] || Date.today).to_date
     mount_totalizers
     mount_date_links(@current_date)
+
+    respond_with({
+      account: @current_account,
+      entries: @entries,
+      categories: @categories,
+      current_date: @current_date,
+      totalizer_incomes: @totalizer_incomes,
+      totalizer_expenses: @totalizer_expenses,
+      totalizer_difference: @totalizer_difference,
+      last_month_path: @last_month_path,
+      next_month_path: @next_month_path
+    })
   end
 
   # GET /entries/1
