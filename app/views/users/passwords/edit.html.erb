@@ -1,47 +1,54 @@
 <section>
-  <div class="container" id="updatepassword">
-    <%= render 'shared/flash' %>
-
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2>Atualize sua senha</h2>
-        <hr>
+  <section id="title">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1 class="section-heading">Atualize sua senha</h1>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="col-lg-8 col-lg-offset-2">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-              <br><br>
-              <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                  <%= f.error_notification %>
-                </div>
+  <section id="forgotpassword">
+    <div class="container" id="resources">
+      <%= render 'shared/flash' %>
 
-                <div class="col-lg-8 col-lg-offset-2">
-                  <%= f.input :reset_password_token, as: :hidden %>
-                  <%= f.full_error :reset_password_token %>
-                </div>
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+                <br><br>
+                <div class="row">
+                  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+                    <%= f.error_notification %>
+                  </div>
 
-                <div class="col-lg-8 col-lg-offset-2">
-                  <%= f.input :password, label: I18n.t('simple_form.labels.user.new_password'), required: true, autofocus: true, hint: (I18n.t('users.registrations.new.minimum_password_text', min_password: @minimum_password_length) if @minimum_password_length) %>
-                  <%= f.input :password_confirmation, required: true %>
-                </div>
+                  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+                    <%= f.input :reset_password_token, as: :hidden %>
+                    <%= f.full_error :reset_password_token %>
+                  </div>
 
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                  <%= f.button :submit, "Alterar minha senha", class: 'btn btn-success btn-block' %>
+                  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+                    <%= f.input :password, label: I18n.t('simple_form.labels.user.new_password'), required: true, autofocus: true, hint: (I18n.t('users.registrations.new.minimum_password_text', min_password: @minimum_password_length) if @minimum_password_length) %>
+                    <%= f.input :password_confirmation, required: true %>
+                  </div>
+
+                  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 text-center">
+                    <%= f.button :submit, "Alterar minha senha", class: 'btn btn-success btn-block' %>
+                  </div>
                 </div>
-              </div>
-              <br><br>
-              <div class="row">
-                <div class="col-lg-12 text-center">
-                  <%= render "users/shared/links" %>
+                <br><br>
+                <div class="row">
+                  <div class="col-lg-12 text-center">
+                    <%= render "users/shared/links" %>
+                  </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </section>
