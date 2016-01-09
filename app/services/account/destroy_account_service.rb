@@ -12,7 +12,7 @@ class Account::DestroyAccountService
       account_destroyed = @account.destroy
 
       if account_destroyed.id == @user.main_account
-        main_account_id = @user.accounts.first
+        main_account_id = @user.accounts.first.id
         @user.update(main_account: main_account_id)
       end
 
