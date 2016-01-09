@@ -29,15 +29,14 @@
       <table class='table table-hover entry-table'>
         <tbody>
           <% @entries.each do |entry| %>
-            <tr>
-              <td class="col-lg-1 col-md-1">
+            <% warning_class = (entry.date < Date.today and !entry.paid?) ? 'warning' : '' %>
+            <tr class="<%= warning_class %>">
+              <td class="col-lg-6 col-md-6">
                 <% if entry.entries_type == Entry.entries_types[:income] %>
                   <i class='fa fa-plus-square' style='color: #2ecc71;'></i>
                 <% else %>
                   <i class='fa fa-minus-square' style='color: #e74c3c;'></i>
                 <% end %>
-              </td>
-              <td class="col-lg-5 col-md-5">
                 <%= link_to entry.description, entry %>
               </td>
               <td class="col-lg-2 col-md-2">
