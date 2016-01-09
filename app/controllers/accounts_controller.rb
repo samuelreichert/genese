@@ -12,19 +12,24 @@ class AccountsController < ApplicationController
   end
 
   def create
-    if account_params[:public] == '1'
-      account_saved = Account::SaveAccountService.new(current_user, account_params, params[:account][:users]).save
+    @user = current_user
+
+    if account_params[:public] == '1' && params[:account][:users].present?
+      @account = Account::SaveAccountService.new(@user, account_params, params[:account][:users]).save
     else
-      account_saved = current_user.accounts.create!(account_params)
+      @account = @user.accounts.create!(account_params)
     end
-    User::CategoryService.new(account_saved).create_categories
+
+    if @account
+      User::CategoryService.new(@account).create_categories
+    end
 
     respond_to do |format|
-      if account_saved
+      if @account
         format.html { redirect_to accounts_path, notice: I18n.t('activerecord.messages.account_created') }
         format.json { render :index, status: :created, location: @account }
       else
-        format.html { render :index }
+        format.html { render :new }
         format.json { render json: @account.errors, status: :unprocessable_entity }
       end
     end

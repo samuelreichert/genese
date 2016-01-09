@@ -121,8 +121,8 @@ pt-BR:
         one: Não é possível excluir o registro pois existe um %{record} dependente
         many: Não é possível excluir o registro pois existem %{record} dependentes
       taken: já está em uso
-      too_long: 'é muito longo (máximo: %{count} caracteres)'
-      too_short: 'é muito curto (mínimo: %{count} caracteres)'
+      too_long: 'é muito longo(a) (máximo: %{count} caracteres)'
+      too_short: 'é muito curto(a) (mínimo: %{count} caracteres)'
       wrong_length: não possui o tamanho esperado (%{count} caracteres)
       other_than: deve ser diferente de %{count}
     template:

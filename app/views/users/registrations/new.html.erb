@@ -27,7 +27,8 @@
                   <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
                     <%= f.input :name, required: true, autofocus: true %>
 
-                    <%= f.input :birth_date, as: :date_picker %>
+                    <% maxDate = Date.today.end_of_year - 5.year %>
+                    <%= f.input :birth_date, as: :date_picker, input_html: {data: {date_options: {maxDate: maxDate.to_s}}} %>
 
                     <%= f.input :avatar, as: :file, required: false, input_html: {accept: 'image/*'} %>
 

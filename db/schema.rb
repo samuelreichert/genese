@@ -18,12 +18,12 @@ ActiveRecord::Schema.define(version: 20151219032426) do
 
   create_table "accounts", force: true do |t|
     t.boolean "entries_order",        default: false
-    t.string  "currency_type",        default: "R$",  null: false
+    t.string  "currency_type",        default: "pt-BR", null: false
     t.integer "reminder_days_before", default: 0
     t.boolean "reminder_active",      default: false
     t.boolean "public",               default: false
-    t.string  "name",                 default: "",    null: false
-    t.integer "owner",                default: 0,     null: false
+    t.string  "name",                 default: "",      null: false
+    t.integer "owner",                default: 0,       null: false
   end
 
   create_table "accounts_users", id: false, force: true do |t|

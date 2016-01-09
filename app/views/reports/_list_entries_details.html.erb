@@ -23,7 +23,7 @@
               <td><%= I18n.l income.date %></td>
               <td><%= link_to income.description, income %></td>
               <td class="text-right">
-                <%= number_to_currency(income.value, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
+                <%= number_to_currency(income.value, locale: @current_account.read_attribute('currency_type')) %>
               </td>
             </tr>
           <% end %>
@@ -33,7 +33,7 @@
             <td></td>
             <td class="text-right">
               <strong>
-                <%= number_to_currency(@totalizer_incomes, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
+                <%= number_to_currency(@totalizer_incomes, locale: @current_account.read_attribute('currency_type')) %>
               </strong>
             </td>
           </tr>
@@ -62,7 +62,7 @@
               </td>
               <td><%= I18n.l expense.date %></td>
               <td><%= link_to expense.description, expense %></td>
-              <td class="text-right"><%= number_to_currency(expense.value, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %></td>
+              <td class="text-right"><%= number_to_currency(expense.value, locale: @current_account.read_attribute('currency_type')) %></td>
             </tr>
           <% end %>
           <tr>
@@ -71,7 +71,7 @@
             <td></td>
             <td class="text-right">
               <strong>
-                <%= number_to_currency(@totalizer_expenses, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
+                <%= number_to_currency(@totalizer_expenses, locale: @current_account.read_attribute('currency_type')) %>
               </strong>
             </td>
           </tr>

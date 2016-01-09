@@ -49,10 +49,12 @@ class CategoriesController < ApplicationController
     new_category_id = params[:modal_category]
     account = current_account
 
-    entries = account.entries.where(category_id: @category.id)
+    if new_category_id.present?
+      entries = account.entries.where(category_id: @category.id)
 
-    if entries.any?
-      entries.update_all(category_id: new_category_id)
+      if entries.any?
+        entries.update_all(category_id: new_category_id)
+      end
     end
 
     @category.destroy

@@ -6,13 +6,13 @@ class Account::SaveAccountService
   end
 
   def save
-    account_saved = @user.accounts.create!(@account_params)
+    account = @user.accounts.create!(@account_params)
 
     @users_ids.each do |user_id|
       user = User.find(user_id)
-      account_saved.users << user
+      account.users << user
     end
 
-    account_saved
+    account
   end
 end

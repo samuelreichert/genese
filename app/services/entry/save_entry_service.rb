@@ -14,7 +14,7 @@ class Entry::SaveEntryService
         entries_array.each(&:save)
       end
 
-      return valid_entries
+      valid_entries
     else
       entry = @account.entries.new(@entry_params)
       entry.save

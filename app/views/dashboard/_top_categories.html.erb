@@ -21,7 +21,7 @@
   <% if @all_expenses.empty? %>
     <div class="col-lg-12 text-center not-found-box">
       <i class='fa fa-exclamation-circle fa-4x muted'></i>
-      <h5 class='muted'>Nenhum lançamento encontrado para montar este gráfico</h5>
+      <h5 class='muted'>Nenhuma despesa encontrada para montar este gráfico</h5>
     </div>
   <% else %>
     <div class="col-lg-12">
@@ -36,7 +36,7 @@
                     <span><%= category[:category] %></span>
                   </div>
                   <div class="col-lg-4 text-right">
-                    <%= number_to_currency(category[:value], unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
+                    <%= number_to_currency(category[:value], locale: @current_account.read_attribute('currency_type')) %>
                   </div>
                 </div>
               </li>

@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    models:
+      admin_user:
+        one: 'Admin'
+        other: 'Admins'

@@ -4,16 +4,11 @@
       <div class="row">
         <div class="col-lg-6 col-md-6 text-left">
           <%= hidden_field_tag(:current_date, @current_date) %>
-          <select name="category" id="category" class="select form-control">
-            <option value="">Selecione uma categoria...</option>
-            <%= @categories.each do |category| %>
-              <option value="<%= category.id %>"><%= category.name %></option>
-            <% end %>
-          </select>
+          <%= select_tag :category, options_for_select(@categories.all.collect {|c| [c.name, c.id]}, params[:category]), class: 'select form-control', include_blank: "Selecione uma categoria..." %>
         </div>
         <div class="col-lg-6 col-md-6">
           <div class="input-group">
-            <input type="text" name="description" id="description" class="form-control" placeholder="Buscar por descrição...">
+            <%= text_field_tag :description, params[:description], class: 'form-control', placeholder: 'Buscar por descrição...' %>
             <span class="input-group-btn">
               <button class="btn btn-default" type="submit">
                 <i class="fa fa-search"></i>
@@ -42,8 +37,12 @@
                   <i class='fa fa-minus-square' style='color: #e74c3c;'></i>
                 <% end %>
               </td>
-              <td class="col-lg-5 col-md-5"><%= link_to entry.description, entry %></td>
-              <td class="col-lg-2 col-md-2"><%= number_to_currency(entry.value, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %></td>
+              <td class="col-lg-5 col-md-5">
+                <%= link_to entry.description, entry %>
+              </td>
+              <td class="col-lg-2 col-md-2">
+                <%= number_to_currency(entry.value, locale: @current_account.read_attribute('currency_type')) %>
+              </td>
               <td class="col-lg-1 col-md-1">
                 <%= I18n.l(entry.date) %>
               </td>
@@ -76,19 +75,19 @@
       <div class="col-lg-3 col-md-3 text-right">
         <span class="text-muted">Receita total</span>
         <h6 class="text-success">
-          <%= number_to_currency(@totalizer_incomes, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
+          <%= number_to_currency(@totalizer_incomes, locale: @current_account.read_attribute('currency_type')) %>
         </h6>
       </div>
       <div class="col-lg-3 col-md-3 text-right">
         <span class="text-muted">Despesa total</span>
         <h6 class="text-danger">
-          <%= number_to_currency(@totalizer_expenses, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
+          <%= number_to_currency(@totalizer_expenses, locale: @current_account.read_attribute('currency_type')) %>
         </h6>
       </div>
       <div class="col-lg-3 col-md-3 text-right">
         <span class="text-muted">Previsto no fim do mês</span>
         <h6 class="text-primary">
-          <%= number_to_currency(@totalizer_difference, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
+          <%= number_to_currency(@totalizer_difference, locale: @current_account.read_attribute('currency_type')) %>
         </h6>
       </div>
     </div>

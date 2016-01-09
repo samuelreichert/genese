@@ -1,41 +1,48 @@
 <section>
-  <div class="container" id="forgotpassword">
-    <%= render 'shared/flash' %>
-
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2>Esqueci minha senha</h2>
-        <hr>
+  <section id="title">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1 class="section-heading">Esqueci minha senha</h1>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="col-lg-8 col-lg-offset-2">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-              <br><br>
-              <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                  <%= f.error_notification %>
-                </div>
+  <section id="forgotpassword">
+    <div class="container" id="resources">
+      <%= render 'shared/flash' %>
 
-                <div class="col-lg-8 col-lg-offset-2">
-                  <%= f.input :email, required: true, autofocus: true, placeholder: 'Digite seu e-mail' %>
-                </div>
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+                <br><br>
+                <div class="row">
+                  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+                    <%= f.error_notification %>
+                  </div>
 
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                  <%= f.button :submit, "Resetar Senha", class: 'btn btn-success btn-block' %>
+                  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+                    <%= f.input :email, required: true, autofocus: true, placeholder: 'Digite seu e-mail' %>
+                  </div>
+
+                  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 text-center">
+                    <%= f.button :submit, "Resetar Senha", class: 'btn btn-success btn-block' %>
+                  </div>
                 </div>
-              </div>
-              <br><br>
-              <div class="row">
-                <div class="col-lg-12 text-center">
-                  <%= render "users/shared/links" %>
+                <br><br>
+                <div class="row">
+                  <div class="col-lg-12 text-center">
+                    <%= render "users/shared/links" %>
+                  </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </section>

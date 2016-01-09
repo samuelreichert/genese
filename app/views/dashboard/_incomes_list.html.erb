@@ -21,7 +21,7 @@
                 <% end %>
               </td>
               <td class="col-lg-3 vertical-middle text-right">
-                <%= number_to_currency(income.value, unit: @current_account.read_attribute('currency_type'), separator: ",", delimiter: ".") %>
+                <%= number_to_currency(income.value, locale: @current_account.read_attribute('currency_type')) %>
               </td>
             </tr>
           <% end %>
