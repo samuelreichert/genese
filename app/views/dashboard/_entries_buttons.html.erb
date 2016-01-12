@@ -5,11 +5,11 @@
     <div class="btn-group btn-group-justified btn-new-entry">
       <%= link_to new_entry_path(entries_type: Entry.entries_types[:expense]), class: 'btn btn-danger btn-lg' do %>
         <i class="fa fa-plus"></i>
-        Nova Despesa
+        Despesa
       <% end %>
       <%= link_to new_entry_path(entries_type: Entry.entries_types[:income]), class: 'btn btn-success btn-lg' do %>
         <i class="fa fa-plus"></i>
-        Nova Receita
+        Receita
       <% end %>
     </div>
   </div>
