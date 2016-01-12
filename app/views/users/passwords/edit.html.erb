@@ -2,7 +2,7 @@
   <section id="title">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 text-center">
+        <div class="col-xs-12 text-center">
           <h1 class="section-heading">Atualize sua senha</h1>
         </div>
       </div>
@@ -14,33 +14,33 @@
       <%= render 'shared/flash' %>
 
       <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
           <div class="panel panel-default">
             <div class="panel-body">
               <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
                 <br><br>
                 <div class="row">
-                  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+                  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                     <%= f.error_notification %>
                   </div>
 
-                  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+                  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                     <%= f.input :reset_password_token, as: :hidden %>
                     <%= f.full_error :reset_password_token %>
                   </div>
 
-                  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+                  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
                     <%= f.input :password, label: I18n.t('simple_form.labels.user.new_password'), required: true, autofocus: true, hint: (I18n.t('users.registrations.new.minimum_password_text', min_password: @minimum_password_length) if @minimum_password_length) %>
                     <%= f.input :password_confirmation, required: true %>
                   </div>
 
-                  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 text-center">
+                  <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
                     <%= f.button :submit, "Alterar minha senha", class: 'btn btn-success btn-block' %>
                   </div>
                 </div>
                 <br><br>
                 <div class="row">
-                  <div class="col-lg-12 text-center">
+                  <div class="col-xs-12 text-center">
                     <%= render "users/shared/links" %>
                   </div>
                 </div>
