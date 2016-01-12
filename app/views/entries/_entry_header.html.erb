@@ -1,21 +1,22 @@
 <div class="row entry-header">
-  <div class="col-lg-4 col-md-4 text-center">
-    <%= link_to new_entry_path(entries_type: Entry.entries_types[:expense]), class: 'btn btn-danger btn-new-entry btn-margin-right' do %>
-      <i class="fa fa-plus"></i>
-      Despesa
-    <% end %>
-
-    <%= link_to new_entry_path(entries_type: Entry.entries_types[:income]), class: 'btn btn-success btn-new-entry' do %>
-      <i class="fa fa-plus"></i>
-      Receita
-    <% end %>
+  <div class="col-xs-12 col-sm-4 text-center">
+    <div class="btn-group btn-group-justified btn-new-entry">
+      <%= link_to new_entry_path(entries_type: Entry.entries_types[:expense]), class: 'btn btn-danger' do %>
+        <i class="fa fa-plus"></i>
+        Despesa
+      <% end %>
+      <%= link_to new_entry_path(entries_type: Entry.entries_types[:income]), class: 'btn btn-success' do %>
+        <i class="fa fa-plus"></i>
+        Receita
+      <% end %>
+    </div>
   </div>
 
-  <div class="col-lg-4 col-md-4 text-center">
+  <div class="col-xs-12 col-sm-4 text-center">
     <h4>Lançamentos</h4>
   </div>
 
-  <div class="col-lg-4 col-md-4 text-center">
+  <div class="col-xs-12 col-sm-4 text-center">
     <h5 class="month-selector">
       <%= link_to @last_month_path do %>
         <i class="fa fa-chevron-left"></i>

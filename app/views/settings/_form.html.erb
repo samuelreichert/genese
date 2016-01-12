@@ -1,27 +1,27 @@
 <div class="row">
-  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
     <%= simple_form_for @current_account, html: {class: 'form-horizontal'} do |f| %>
       <hr />
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-xs-12">
           <%= f.error_notification %>
         </div>
 
-        <div class="col-lg-12">
+        <div class="col-xs-12">
           <h4>Lançamentos</h4>
         </div>
 
-        <div class="col-lg-12">
+        <div class="col-xs-12">
           <div class="form-group">
-            <%= f.label :currency_type, class: 'col-lg-4 col-md-4 control-label' %>
-            <div class="col-lg-8 col-md-8">
+            <%= f.label :currency_type, class: 'col-xs-4 control-label' %>
+            <div class="col-xs-8">
               <%= f.input_field :currency_type, as: :radio_buttons, item_wrapper_tag: false, item_label_class: 'radio-inline' %>
             </div>
           </div>
 
           <div class="form-group">
-            <%= f.label :entries_order, class: 'col-lg-4 col-md-4 control-label' %>
-            <div class="col-lg-8 col-md-8">
+            <%= f.label :entries_order, class: 'col-xs-4 control-label' %>
+            <div class="col-xs-8">
               <%= f.input_field :entries_order, as: :radio_buttons, item_wrapper_tag: false, item_label_class: 'radio-inline' %>
             </div>
           </div>
@@ -30,14 +30,14 @@
 
       <hr />
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-xs-12">
           <h4>Lembretes</h4>
         </div>
 
-        <div class="col-lg-12">
+        <div class="col-xs-12">
           <div class="form-group">
-            <%= f.label :reminder_active, class: 'col-lg-4 col-md-4 control-label' %>
-            <div class="col-lg-4 col-md-4">
+            <%= f.label :reminder_active, class: 'col-xs-4 control-label' %>
+            <div class="col-xs-4">
               <div class="checkbox">
                 <%= f.input_field :reminder_active, label: false, class: 'reminder_active' %>
               </div>
@@ -45,21 +45,21 @@
           </div>
 
           <div class="form-group">
-            <%= f.label :reminder_days_before, class: 'col-lg-4 col-md-4 control-label' %>
-            <div class="col-lg-4 col-md-4">
+            <%= f.label :reminder_days_before, class: 'col-xs-4 control-label' %>
+            <div class="col-xs-4">
               <%= f.input_field :reminder_days_before, collection: 0..5, label: false, include_blank: false, item_label_tag: false, class: "form-control reminder_days_before", disabled: (!@current_account.reminder_active) %>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-6 col-md-6">
+        <div class="col-xs-6">
           <%= link_to :back, class: "btn btn-default" do %>
             <i class="fa fa-chevron-left"></i>
             Voltar
           <% end %>
         </div>
 
-        <div class="col-lg-6 col-md-6 text-right">
+        <div class="col-xs-6 text-right">
           <%= f.button :submit, "Salvar Alterações", class: 'btn btn-success' %>
         </div>
       </div>

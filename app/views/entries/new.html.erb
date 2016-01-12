@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-lg-10 col-lg-offset-1">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="row">
-          <div class="col-lg-12 text-center">
+          <div class="col-xs-12 text-center">
             <% if @entry.entries_type == Entry.entries_types[:income] %>
               <h3>Nova Receita</h3>
             <% else %>
@@ -13,7 +13,7 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
             <%= render 'form' %>
           </div>
         </div>

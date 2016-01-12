@@ -1,26 +1,26 @@
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-xs-12">
     <p class="lead">Despesas a pagar</p>
   </div>
 
   <% if @expenses.empty? %>
     <%= render 'no_data' %>
   <% else %>
-    <div class="col-lg-12">
+    <div class="col-xs-12">
       <table class="table table-condensed">
         <tbody>
           <% @expenses.each do |expense| %>
             <tr>
-              <td class="col-lg-1 vertical-middle">
+              <td class="col-xs-1 vertical-middle">
                 <i class='fa fa-minus-square' style='color: #e74c3c;'></i>
               </td>
-              <td class="col-lg-8">
+              <td class="col-xs-8">
                 <%= link_to expense, class: 'link_block' do %>
                   <%= expense.description %><br>
                   <small><%= I18n.l expense.date %></small>
                 <% end %>
               </td>
-              <td class="col-lg-3 vertical-middle text-right">
+              <td class="col-xs-3 vertical-middle text-right">
                 <%= number_to_currency(expense.value, locale: @current_account.read_attribute('currency_type')) %>
               </td>
             </tr>
