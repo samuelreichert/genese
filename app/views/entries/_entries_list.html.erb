@@ -55,7 +55,7 @@
                 <%= link_to edit_entry_path(entry), class: 'link-icon' do %>
                   <i class='fa fa-lg fa-pencil'></i>
                 <% end %>
-                <%= link_to entry, method: :delete, data: { confirm: 'Deseja mesmo deletar este lançamento?' }, class: 'link-icon' do %>
+                <%= link_to '#', data: {toggle: 'modal', target: "#entry_modal_#{entry.id}"}, class: 'link-icon' do %>
                   <i class='fa fa-lg fa-trash'></i>
                 <% end %>
                 <%= link_to entry_paid_path(entry_id: entry.id, paid: !entry.paid), method: :post, class: 'link-icon', title: (entry.paid ? 'Marcar como não pago' : 'Marcar como pago'), data: {toggle: 'tooltip', placement: 'bottom'} do %>
@@ -63,6 +63,7 @@
                 <% end %>
               </td>
             </tr>
+            <%= render partial: 'delete_entry_modal', object: entry, as: 'entry' %>
           <% end %>
         </tbody>
       </table>

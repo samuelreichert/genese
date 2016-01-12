@@ -1,0 +1,30 @@
+<div class="modal fade" id="entry_modal_<%= entry.id %>" tabindex="-1" role="dialog" aria-labelledby="modalEntryLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title text-danger" id="modalEntryLabel">
+          Deletar Lançamento
+        </h4>
+      </div>
+      <div class="modal-body">
+        <p class="lead">
+          Descrição: <b><%= entry.description %></b> <br>
+          Valor: <b><%= number_to_currency(entry.value, locale: @current_account.read_attribute('currency_type')) %></b><br>
+          Categoria:
+          <b>
+            <i class="fa fa-circle" style="color:<%= entry.category.color %>;"></i>
+            <%= entry.category.name %>
+          </b>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          <i class="fa fa-chevron-left"></i>
+          Fechar
+        </button>
+        <%= link_to 'Deletar Lançamento', entry, method: :delete, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>
