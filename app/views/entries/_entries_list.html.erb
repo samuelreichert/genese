@@ -1,12 +1,12 @@
 <div class="row">
-  <div class="col-lg-12" style="margin-bottom: 24px;">
+  <div class="col-xs-12" style="margin-bottom: 24px;">
     <%= form_tag(entries_path, method: :get) do %>
       <div class="row">
-        <div class="col-lg-6 col-md-6 text-left">
+        <div class="col-xs-12 col-sm-6">
           <%= hidden_field_tag(:current_date, @current_date) %>
           <%= select_tag :category, options_for_select(@categories.all.collect {|c| [c.name, c.id]}, params[:category]), class: 'select form-control', include_blank: "Selecione uma categoria..." %>
         </div>
-        <div class="col-lg-6 col-md-6">
+        <div class="col-xs-12 col-sm-6">
           <div class="input-group">
             <%= text_field_tag :description, params[:description], class: 'form-control', placeholder: 'Buscar por descrição...' %>
             <span class="input-group-btn">
@@ -19,9 +19,9 @@
       </div>
     <% end %>
   </div>
-  <div class='col-lg-12'>
+  <div class='col-xs-12'>
     <% if @entries.empty? %>
-      <div class="col-lg-10 col-lg-offset-1 text-center not-found-box">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center not-found-box">
         <i class='fa fa-exclamation-circle fa-4x muted'></i>
         <h5 class='muted'>Nenhum lançamento encontrado</h5>
       </div>
@@ -31,7 +31,7 @@
           <% @entries.each do |entry| %>
             <% warning_class = (entry.date < Date.today and !entry.paid?) ? 'warning' : '' %>
             <tr class="<%= warning_class %>">
-              <td class="col-lg-6 col-md-6">
+              <td class="col-xs-6">
                 <% if entry.entries_type == Entry.entries_types[:income] %>
                   <i class='fa fa-plus-square' style='color: #2ecc71;'></i>
                 <% else %>
@@ -39,19 +39,19 @@
                 <% end %>
                 <%= link_to entry.description, entry %>
               </td>
-              <td class="col-lg-2 col-md-2">
+              <td class="col-xs-2">
                 <%= number_to_currency(entry.value, locale: @current_account.read_attribute('currency_type')) %>
               </td>
-              <td class="col-lg-1 col-md-1">
+              <td class="col-xs-1">
                 <%= I18n.l(entry.date) %>
               </td>
-              <td class="col-lg-2 col-md-2">
+              <td class="col-xs-2">
                 <% if entry.category %>
                   <i class='fa fa-circle' style="color:<%= entry.category.color %>;"></i>
                   <%= entry.category.name %>
                 <% end %>
               </td>
-              <td class="col-lg-1 col-md-1 text-right">
+              <td class="col-xs-1 text-right">
                 <%= link_to edit_entry_path(entry), class: 'link-icon' do %>
                   <i class='fa fa-lg fa-pencil'></i>
                 <% end %>
@@ -68,22 +68,22 @@
       </table>
     <% end %>
   </div>
-  <div class="col-lg-12">
+  <div class="col-xs-12">
     <div class="row">
-      <div class="col-lg-3 col-md-3"></div>
-      <div class="col-lg-3 col-md-3 text-right">
+      <div class="hidden-xs col-sm-3"></div>
+      <div class="col-xs-4 col-sm-3 text-right">
         <span class="text-muted">Receita total</span>
         <h6 class="text-success">
           <%= number_to_currency(@totalizer_incomes, locale: @current_account.read_attribute('currency_type')) %>
         </h6>
       </div>
-      <div class="col-lg-3 col-md-3 text-right">
+      <div class="col-xs-4 col-sm-3 text-right">
         <span class="text-muted">Despesa total</span>
         <h6 class="text-danger">
           <%= number_to_currency(@totalizer_expenses, locale: @current_account.read_attribute('currency_type')) %>
         </h6>
       </div>
-      <div class="col-lg-3 col-md-3 text-right">
+      <div class="col-xs-4 col-sm-3 text-right">
         <span class="text-muted">Previsto no fim do mês</span>
         <h6 class="text-primary">
           <%= number_to_currency(@totalizer_difference, locale: @current_account.read_attribute('currency_type')) %>
