@@ -4,7 +4,10 @@ class SettingsController < ApplicationController
   def index
     @current_account = current_account
     @categories = categories_ordered
-    respond_with(@current_account)
+    respond_with({
+      account: @current_account,
+      categories: @categories
+    })
   end
 
   private
