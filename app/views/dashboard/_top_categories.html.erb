@@ -26,24 +26,24 @@
   <% else %>
     <div class="col-xs-12">
       <div class="row">
-        <div class="col-xs-6">
+        <div class="col-xs-12 col-sm-6">
           <ul class="list-group">
             <% @categories.each do |category| %>
               <li class="list-group-item">
                 <div class="row">
-                  <div class="col-xs-8">
+                  <div class="col-xs-12">
                     <i class="fa fa-circle" style="color:<%= category[:color] %>;"></i>
                     <span><%= category[:category] %></span>
-                  </div>
-                  <div class="col-xs-4 text-right">
-                    <%= number_to_currency(category[:value], locale: @current_account.read_attribute('currency_type')) %>
+                    <span style="float: right;">
+                      <%= number_to_currency(category[:value], locale: @current_account.read_attribute('currency_type')) %>
+                    </span>
                   </div>
                 </div>
               </li>
             <% end %>
           </ul>
         </div>
-        <div class="col-xs-6 text-right">
+        <div class="col-xs-12 col-sm-6 text-right">
           <canvas id="topCategoriesChart"></canvas>
         </div>
       </div>
