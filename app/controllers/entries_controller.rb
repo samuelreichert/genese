@@ -29,7 +29,7 @@ class EntriesController < ApplicationController
   # GET /entries/1
   # GET /entries/1.json
   def show
-    @current_account = current_account
+    respond_with(@entry)
   end
 
   # GET /entries/new
@@ -42,7 +42,6 @@ class EntriesController < ApplicationController
 
   # GET /entries/1/edit
   def edit
-    @current_account = current_account
     @categories = categories_ordered
   end
 
@@ -87,6 +86,8 @@ class EntriesController < ApplicationController
     end
   end
 
+  # POST /entry_paid
+  # POST /entry_paid.json
   def entry_paid
     paid = params[:paid]
     entry_id = params[:entry_id]
@@ -105,7 +106,8 @@ class EntriesController < ApplicationController
 
   private
   def set_entry
-    @entry = Entry.find(params[:id])
+    @current_account = current_account
+    @entry = @current_account.entries.find(params[:id])
   end
 
   def mount_totalizers

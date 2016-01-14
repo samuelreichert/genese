@@ -2,15 +2,20 @@ class AccountsController < ApplicationController
   before_action :set_account, only: [:destroy]
   respond_to :html, :json
 
+  # GET /accounts
+  # GET /accounts.json
   def index
     @accounts = current_user.accounts
+    respond_with(@accounts)
   end
 
-  # GET /entries/new
+  # GET /accounts/new
   def new
     @account = current_user.accounts.new
   end
 
+  # POST /accounts
+  # POST /accounts.json
   def create
     @user = current_user
 
@@ -35,6 +40,8 @@ class AccountsController < ApplicationController
     end
   end
 
+  # PATCH/PUT /accounts/1
+  # PATCH/PUT /accounts/1.json
   def update
     @current_account = current_account
 
@@ -49,8 +56,8 @@ class AccountsController < ApplicationController
     end
   end
 
-  # DELETE /categories/1
-  # DELETE /categories/1.json
+  # DELETE /accounts/1
+  # DELETE /accounts/1.json
   def destroy
     flash = Account::DestroyAccountService.new(current_user, @account).destroy
     respond_to do |format|
@@ -59,6 +66,8 @@ class AccountsController < ApplicationController
     end
   end
 
+  # POST /leave_account
+  # POST /leave_account.json
   def leave_account
     account_id = params[:account_id]
     account = Account.find(account_id)
@@ -74,6 +83,8 @@ class AccountsController < ApplicationController
     end
   end
 
+  # POST /main_account
+  # POST /main_account.json
   def main_account
     account_id = params[:account_id]
 
@@ -89,7 +100,6 @@ class AccountsController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
   def set_account
     @account = Account.find(params[:id])
   end
